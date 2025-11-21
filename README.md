@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sudhanva Kashyap — Portfolio
 
-## Getting Started
+Calm Next.js App Router experience highlighting Sudhanva’s product, strategy, and analytics work. Tailwind CSS and `next-themes` keep light/dark palettes balanced, while structured data in `src/data` drives every card.
 
-First, run the development server:
+## Tech Stack
+
+- Next.js 16 (App Router, TypeScript, `src/` layout)
+- Tailwind CSS 3 with class-based dark mode
+- next-themes for persistent theme toggling
+- Local TypeScript data modules powering reusable components
+
+## Local Development
+
+From the project root:
 
 ```bash
+# Install dependencies
+npm install
+
+# Start the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app will be available at http://localhost:3000 by default.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Quality Checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run lint` – Next.js ESLint config
+- `npm run build` – Type-check + Turbopack production build
 
-## Learn More
+## Content Entry
 
-To learn more about Next.js, take a look at the following resources:
+Structured data lives in:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/data/projects.ts` – analytics/product builds
+- `src/data/case-studies.ts` – strategy + analytics narratives
+- `src/data/skills.ts` – grouped skill sets
+- `src/data/how-i-work.ts` – operating principles
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Edit or extend those files to add new work without touching layout logic.
 
-## Deploy on Vercel
+## Deploying via GitHub + Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is designed to deploy from a GitHub repository through Vercel.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 1. Push to GitHub
+
+```bash
+git status
+git add .
+git commit -m "Finalize portfolio for deployment"
+git push    # or: git push -u origin main
+```
+
+Ensure the remote repository exists on GitHub (e.g., `https://github.com/<user>/portfolio`).
+
+### 2. Connect the repo in Vercel
+
+1. Visit https://vercel.com/import and choose **Import Git Repository**.
+2. Select the portfolio repo from GitHub.
+3. Vercel auto-detects Next.js, runs `npm run build`, and serves from `.next`.
+4. Click **Deploy**. Each push to the default branch will trigger a new deployment automatically.
+
+## Deploying with the Vercel CLI (optional)
+
+Prefer shipping directly from the command line? Use the Vercel CLI:
+
+```bash
+# Install once
+npm install -g vercel
+
+# Verify locally
+npm run lint
+npm run build
+
+# Create a preview deployment
+vercel
+
+# Promote to production
+vercel --prod
+```
+
+`vercel` guides you through linking or selecting the hosted project and returns preview/production URLs once the deploy completes.

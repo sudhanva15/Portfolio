@@ -7,8 +7,8 @@ export type FunFact = {
 
 export const funFacts: FunFact[] = [
   {
-    id: "kenya-childhood",
-    text: "I grew up in Kenya—spent my childhood watching giraffes from the back seat.",
+    id: "childhood-giraffes",
+    text: "Spent my childhood watching giraffes from the back seat.",
     icon: "🦒",
     context: "about",
   },
@@ -31,8 +31,8 @@ export const funFacts: FunFact[] = [
     context: "about",
   },
   {
-    id: "maasai-mara",
-    text: "I haven't been to Maasai Mara or Mombasa yet—trip in the works.",
+    id: "wildlife-destinations",
+    text: "I have a few wildlife destinations on my travel list—trip in the works.",
     icon: "🗺️",
     context: "about",
   },

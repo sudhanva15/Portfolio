@@ -29,7 +29,7 @@ export default function Hero({ profile }: HeroProps) {
                 I&apos;m {profile.name}—I grew up in Kenya, studied communication design in India, and now build calm, explainable analytics systems in the US.
               </h1>
               <p className="max-w-prose text-[17px] leading-relaxed md:text-lg text-gray-700 dark:text-gray-300">
-                I help teams turn messy signals into confident product decisions.
+                {profile.headline}
               </p>
               {heroFact && (
                 <div className="pt-2">

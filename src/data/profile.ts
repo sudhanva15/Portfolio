@@ -21,7 +21,7 @@ export const profile: Profile = {
   bio:
     "I pair quantitative rigor with systems-level design thinking to help teams see signal faster. My work spans ETF intelligence, research ops, and GTM analytics, always anchored in calm storytelling and actionable metrics.",
   email: "skashya5@simon.rochester.edu",
-  linkedin: "https://www.linkedin.com/in/sudhanvakashyap/",
+  linkedin: "https://www.linkedin.com/in/sudhanvavkashyap/",
   avatar: "/sudhanva-avatar.svg",
   certifications: [
     { name: "Advanced Certificate of Achievement in Pricing", org: "Simon Business School" },

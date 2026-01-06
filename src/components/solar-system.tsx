@@ -16,10 +16,10 @@ interface LocationNode {
 
 const locations: LocationNode[] = [
   {
-    id: "kenya",
-    label: "Kenya",
+    id: "east-africa",
+    label: "East Africa",
     years: "2000–2018",
-    description: "Where curiosity was born—sanctuary dreams, giraffe watching, and bike fixing.",
+    description: "Where curiosity was born—wildlife, bikes, and backyard experiments.",
     x: 50,
     y: 20,
   },
@@ -51,10 +51,9 @@ export default function SolarSystem() {
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-50">Where I&apos;ve Orbited</h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-            From Kenya&apos;s wildlife to India&apos;s design studios to US analytics classrooms—each place shaped how I solve problems.
+            From East Africa&apos;s wildlife to India&apos;s design studios to US analytics classrooms—each place shaped how I solve problems.
           </p>
         </div>
-
         <div className="relative mx-auto h-[400px] max-w-4xl sm:h-[500px]">
           <svg className="pointer-events-none absolute inset-0 h-full w-full dark:hidden" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <ellipse cx="50%" cy="50%" rx="30%" ry="15%" fill="none" stroke="currentColor" strokeWidth="0.5" className={cn("animate-spin-slow", isDark ? "" : "text-gray-300 opacity-25")} style={{ animationDuration: "40s" }} />

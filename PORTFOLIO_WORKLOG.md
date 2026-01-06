@@ -213,3 +213,56 @@ Notes & next steps
 ---
 
 (Will append commit show output and any final verification lines below after pushing)
+
+---
+
+## 2026-01-06 — BA-focused content & UX audit (recruiter signal)
+
+Summary
+- Audit and targeted edits to improve signals for Business Analyst / Product Analyst / Strategy / Pricing roles: reduce repeated biography mentions, canonicalize contact links, centralize headline usage, remove duplicate CTA in hero, and make theme deterministic to prevent flash on reload.
+
+Commands & key outputs
+
+- LinkedIn / mailto / CTA scans:
+
+```sh
+# canonical linkedin
+grep -RIn "linkedin" src | sed -n '1,120p'
+# scan for 'Get in touch' hero CTA
+grep -RIn "Get in touch" src || true
+# verify single mailto
+grep -RIn "mailto:" src | sed -n '1,120p'
+```
+
+- Lint & build (final validation):
+
+```sh
+npm run -s lint && npm run -s build
+# build excerpt (success):
+# ✓ Compiled successfully in 2.5s
+# ✓ Finished TypeScript
+```
+
+Findings & changes
+- `src/data/profile.ts` — **canonicalized** `linkedin` to `https://www.linkedin.com/in/sudhanvavkashyap/` (single source of truth used across site).
+- `src/components/hero.tsx` — **removed** duplicate hero "Get in touch" CTA and replaced hard-coded subline with `profile.headline` to avoid duplicate CTAs and ensure consistent messaging.
+- `src/data/fun-facts.ts` — **rewrote** fun-fact lines to remove repeated country name and improve phrasing for recruiter-facing readability.
+- `src/components/solar-system.tsx` — **updated** personal/location phrasing (e.g., "Kenya" → "East Africa") to reduce repetition and preserve authenticity; also **fixed** a JSX tag mismatch that was causing lint/build errors (missing `</div>` closed).
+- `src/components/themed-background.tsx` + `src/app/layout.tsx` — **made theme deterministic** (use `resolvedTheme` fallback + `defaultTheme="dark"` and `enableSystem={false}`) to avoid flash/hydration mismatch on initial paint.
+- `PORTFOLIO_WORKLOG.md` — appended this BA-focused audit entry (append-only).
+
+Next steps
+- Commit the above edits with a concise message and push to `origin/main` or a review branch. After pushing, perform a quick UX smoke check (homepage, projects, case studies pages) and prepare 1–2 alternative headline variants optimized for BA/PM and Pricing/Strategy roles if you'd like AB copy options.
+
+Commit & verification (what I will stage and commit)
+
+```sh
+# stage files changed by this audit
+git add src/data/profile.ts src/components/hero.tsx src/data/fun-facts.ts src/components/solar-system.tsx src/components/themed-background.tsx src/app/layout.tsx PORTFOLIO_WORKLOG.md
+# commit message
+git commit -m "chore: BA hiring-signal content & UX audit (canonical links, headline centralization, reduced bio duplication, theme determinism)"
+# verify lint/build
+npm run -s lint && npm run -s build
+```
+
+---

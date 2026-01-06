@@ -317,4 +317,37 @@ Next steps
 Verification
 - `npm run -s lint && npm run -s build` — compiled successfully; no blocking lint errors.
 
+Commit: `9faf13d` — `chore: centralize site copy (siteCopy.ts) and inventory; replace inline copy and cleanup duplicates`
+
+## 2026-01-06 — Header: sticky top + layout-shift fix
+
+Summary
+- Implemented sticky header accessibility attributes and layout-shift mitigation: added `role="banner"` to the header and `aria-label="Primary navigation"` to the nav in `src/components/layout/header.tsx`.
+- Introduced a CSS variable `--site-header-height` in `src/components/layout/site-layout.tsx` and applied `paddingTop: var(--site-header-height)` to `<main>` so content is not overlapped by the sticky header.
+- Removed use of `any` by importing `CSSProperties` from `react` and casting the style object; also retained the existing skip-link for keyboard users.
+
+Commands & key outputs
+
+- Lint & build (validation):
+
+```sh
+npm run -s lint && npm run -s build
+# build excerpt (success):
+# ✓ Compiled successfully
+```
+
+Files changed
+
+- `src/components/layout/site-layout.tsx`
+- `src/components/layout/header.tsx`
+
+Verification
+
+- Lint & build succeeded locally; production build generated static and SSG routes.
+- Manual recommendation: quick UX smoke check (homepage, projects, case studies, about) and keyboard navigation check (skip link focus state, tab order).
+
+Next steps
+
+- If you'd like, I can run a short visual smoke test and report any small spacing/focus findings; otherwise this change is ready to be committed and pushed as a follow-up entry.
+
 ---

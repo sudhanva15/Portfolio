@@ -56,3 +56,160 @@ Findings & changes
 
 Next steps
 - Commit the worklog, generator script, and created placeholders in one atomic commit.
+---
+
+## 2026-01-06 — Security: React2Shell / RSC remediation
+
+Summary
+- Run the official remediation tool `npx fix-react2shell-next` and upgraded `next` from **16.0.3** → **16.0.10** (patched release). No additional React server DOM packages were present.
+- Confirmed `npm run lint --silent` and `npm run build --silent` succeed locally after the upgrade.
+- Created a **security-only** commit that staged and committed only the files changed by the remediation tool (see staged files and commit hash below). Pushed to `origin/main`.
+
+Baseline capture (pre-fix)
+- Date / Host: 2026-01-06T15:26:13-0600 (Sudhanvas-MacBook-Air.local)
+- Git branch: `main`
+- Git status (porcelain):
+```
+?? IMAGE_GENERATION_GUIDE.md
+?? PHASE_4_5_COMPLETE.md
+?? PHASE_4_COMPLETE.md
+?? PORTFOLIO_AUDIT_STATUS.md
+?? SHIP_SUMMARY.md
+?? VISUAL_THEME_IMPLEMENTATION.md
+?? dev/git-remote-notes.md
+```
+- Git log (last 5):
+```
+9c36918 (HEAD -> main, origin/main) feat: ship final portfolio (themes, content, assets)
+dfd5c99 chore: add premium placeholders for missing assets + update worklog
+8097187 Finalize portfolio for GitHub + Vercel
+75060d2 Initial commit from Create Next App
+```
+- Node / NPM: `node v24.11.0`, `npm 11.6.1`
+- package.json excerpt (dependencies/devDependencies):
+```
+"next": "16.0.3",
+"react": "19.2.0",
+"react-dom": "19.2.0",
+"eslint-config-next": "16.0.3",
+```
+
+Detected installed versions (pre-fix)
+```
+portfolio@0.1.0 /Users/.../portfolio
+├── next@16.0.3
+├── react-dom@19.2.0
+└── react@19.2.0
+```
+
+Commands executed & key outputs
+
+- Run the fixer (accepted defaults):
+```sh
+npx fix-react2shell-next --yes
+```
+Key excerpt from the fixer:
+```
+fix-react2shell-next - Next.js vulnerability scanner
+Found 1 package.json file(s)
+Found 1 vulnerable file(s):
+  package.json
+     next: 16.0.3 -> 16.0.10 [CVE-...]
+Apply fixes? Y
+Applying fixes...
+  Updated package.json
+Installing dependencies...
+changed 10 packages, and audited 441 packages in 9s
+found 0 vulnerabilities
+Patches applied!
+```
+
+- Re-check installed versions (post-fix):
+```sh
+npm ls next react react-dom react-server-dom-webpack react-server-dom-parcel react-server-dom-turbopack --depth=0 || true
+```
+Post-fix output:
+```
+portfolio@0.1.0 /Users/.../portfolio
+├── next@16.0.10
+├── react-dom@19.2.0
+└── react@19.2.0
+```
+
+- Verify lint & build (silent):
+```sh
+npm run lint --silent   # no blocking lint errors
+npm run build --silent  # compiled successfully with Next.js 16.0.10
+```
+Build excerpt:
+```
+▲ Next.js 16.0.10 (Turbopack)
+Creating an optimized production build ...
+✓ Compiled successfully
+```
+
+Stage-only commit (what I staged)
+- Files staged for the security commit (only):
+```
+package-lock.json
+package.json
+```
+- Commit performed with message: `security: patch React2Shell / RSC CVEs (Next.js upgrade)`
+- Commit hash: `8feff49` (see below)
+
+Push verification
+- Pushed to origin/main successfully.
+- Remote snapshot:
+```
+8feff491f43c1e67b6c8566641971298f27be285        refs/heads/main
+```
+
+Commands run (chronological)
+1) Baseline & environment
+```sh
+date +"%Y-%m-%dT%H:%M:%S%z"; hostname
+git rev-parse --abbrev-ref HEAD
+git status --porcelain
+git log -n 5 --oneline
+node -v && npm -v
+sed -n '1,160p' package.json
+```
+2) Detect current installed versions
+```sh
+npm ls next react react-dom react-server-dom-webpack react-server-dom-parcel react-server-dom-turbopack --depth=0 || true
+```
+3) Apply official remediation
+```sh
+npx fix-react2shell-next --yes
+npm install
+```
+4) Verify versions
+```sh
+npm ls next react react-dom react-server-dom-webpack react-server-dom-parcel react-server-dom-turbopack --depth=0 || true
+```
+5) Validate build
+```sh
+npm run lint --silent
+npm run build --silent
+```
+6) Stage-only commit
+```sh
+git add package.json package-lock.json
+git diff --cached --name-only
+git commit -m "security: patch React2Shell / RSC CVEs (Next.js upgrade)"
+```
+7) Push & verify
+```sh
+git push origin main
+git log -n 3 --oneline --decorate
+git ls-remote --heads origin main
+```
+
+Notes & next steps
+- The remediation updated `next` to 16.0.10 which meets the required patched threshold for 16.x.
+- Lint and build both succeed locally; no further code changes were necessary.
+- I staged and committed **only** `package.json` and `package-lock.json` for the security fix as requested.
+
+---
+
+(Will append commit show output and any final verification lines below after pushing)

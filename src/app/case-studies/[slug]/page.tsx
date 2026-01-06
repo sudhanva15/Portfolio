@@ -8,6 +8,7 @@ import ScrollFadeIn from "@/components/scroll-fade-in";
 import FunFactBadge from "@/components/fun-fact-badge";
 import { caseStudies } from "@/data/case-studies";
 import { funFacts } from "@/data/fun-facts";
+import { siteCopy } from "@/content/siteCopy";
 
 interface CaseStudyPageProps {
   params: Promise<{
@@ -24,12 +25,12 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   const study = caseStudies.find((item) => item.slug === slug);
   if (!study) {
     return {
-      title: "Case Study Not Found — Sudhanva Kashyap",
+      title: "Case Study Not Found - Sudhanva Kashyap",
     };
   }
 
   return {
-    title: `${study.title} — Sudhanva Kashyap`,
+    title: `${study.title} - Sudhanva Kashyap`,
     description: study.summary,
   };
 }
@@ -86,7 +87,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
 
         <AssetHero
           image={study.heroImage}
-          placeholderLabel="Case study hero visual coming soon"
+          placeholderLabel={siteCopy.placeholders.heroVisual}
           aspect="16/9"
           className="mt-8"
         />
@@ -126,7 +127,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
                 </div>
               ) : (
                 <PlaceholderFrame
-                  label="Secondary visual coming soon"
+                  label={siteCopy.placeholders.heroVisual}
                   className="mt-4 h-40 rounded-xl text-sm font-medium shadow-sm"
                 />
               )}

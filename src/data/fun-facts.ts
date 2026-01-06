@@ -5,77 +5,79 @@ export type FunFact = {
   context?: "about" | "hero" | "project" | "case-study" | "footer";
 };
 
+import { siteCopy } from "@/content/siteCopy";
+
 export const funFacts: FunFact[] = [
   {
     id: "childhood-giraffes",
-    text: "Spent my childhood watching giraffes from the back seat.",
+    text: siteCopy.funFacts["childhood-giraffes"],
     icon: "🦒",
     context: "about",
   },
   {
     id: "giraffe-attempt",
-    text: "I once tried (and failed) to touch a giraffe at a sanctuary.",
+    text: siteCopy.funFacts["giraffe-attempt"],
     icon: "🤚",
     context: "about",
   },
   {
     id: "bike-fixing",
-    text: "I love fixing bicycles. There's something satisfying about diagnosing a stuck derailleur.",
+    text: siteCopy.funFacts["bike-fixing"],
     icon: "🔧",
     context: "about",
   },
   {
     id: "trails-photography",
-    text: "I love trails and wildlife photography—always learning too many things at once.",
+    text: siteCopy.funFacts["trails-photography"],
     icon: "📸",
     context: "about",
   },
   {
     id: "wildlife-destinations",
-    text: "I have a few wildlife destinations on my travel list—trip in the works.",
+    text: siteCopy.funFacts["wildlife-destinations"],
     icon: "🗺️",
     context: "about",
   },
   {
     id: "hero-curiosity",
-    text: "Endlessly curious and always learning too many things at once.",
+    text: siteCopy.funFacts["hero-curiosity"],
     icon: "✨",
     context: "hero",
   },
   {
     id: "dorm-room-hacking",
-    text: "I hacked the first version together in a dorm room during midterms.",
+    text: siteCopy.funFacts["dorm-room-hacking"],
     icon: "💡",
     context: "project",
   },
   {
     id: "racing-sim-retro",
-    text: "I ran playtest retros from a racing-sim cockpit to mimic headset field-of-view constraints.",
+    text: siteCopy.funFacts["racing-sim-retro"],
     icon: "🏎️",
     context: "project",
   },
   {
     id: "vr-whiteboard",
-    text: "I sketched the first archetype storyboards inside a VR whiteboard to stay immersed.",
+    text: siteCopy.funFacts["vr-whiteboard"],
     icon: "🥽",
     context: "project",
   },
 
   {
     id: "scraper-siren",
-    text: "I rigged drift alerts to play a synth siren in Slack so ops could literally hear when extractors broke.",
+    text: siteCopy.funFacts["scraper-siren"],
     icon: "🔔",
     context: "project",
   },
   {
     id: "svc-consulting",
-    text: "I joined SVC Consulting to get my hands dirty with real strategy work—not just theory.",
+    text: siteCopy.funFacts["svc-consulting"],
     icon: "🌍",
     context: "case-study",
   },
   {
     id: "footer-personality",
-    text: "Built with intention in Rochester, NY—probably while fixing a bike.",
+    text: siteCopy.funFacts["footer-personality"],
     icon: "🚴",
     context: "footer",
   },

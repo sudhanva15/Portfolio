@@ -6,6 +6,7 @@ import HeroVisual from "@/components/hero-visual";
 import FunFactBadge from "@/components/fun-fact-badge";
 import type { Profile } from "@/data/profile";
 import { funFacts } from "@/data/fun-facts";
+import { siteCopy } from "@/content/siteCopy"; 
 
 interface HeroProps {
   profile: Profile;
@@ -26,10 +27,10 @@ export default function Hero({ profile }: HeroProps) {
           >
             <div className="space-y-6">
               <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-50 md:text-5xl lg:text-6xl">
-                I&apos;m {profile.name}—I grew up in Kenya, studied communication design in India, and now build calm, explainable analytics systems in the US.
+                {siteCopy.hero.introTemplate.replace('{name}', profile.name)}
               </h1>
               <p className="max-w-prose text-[17px] leading-relaxed md:text-lg text-gray-700 dark:text-gray-300">
-                {profile.headline}
+                {siteCopy.hero.subhead}
               </p>
               {heroFact && (
                 <div className="pt-2">
@@ -40,11 +41,12 @@ export default function Hero({ profile }: HeroProps) {
 
             <div className="rounded-full border border-gray-200 bg-gray-50/50 px-6 py-3 text-xs font-medium text-gray-600 dark:border-gray-800 dark:bg-gray-900/50 dark:text-gray-400">
               <span className="inline-flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span>MSBA (Analytics) · B.Des (Communication Design)</span>
-                <span className="text-gray-400 dark:text-gray-600">·</span>
-                <span>Product + Strategy + Design</span>
-                <span className="text-gray-400 dark:text-gray-600">·</span>
-                <span>F1 OPT-eligible (US)</span>
+                {siteCopy.hero.badges.map((b, i) => (
+                  <span key={i} className="inline-flex items-center gap-x-2">
+                    <span>{b}</span>
+                    {i < siteCopy.hero.badges.length - 1 && <span className="text-gray-400 dark:text-gray-600">·</span>}
+                  </span>
+                ))}
               </span>
             </div>
 
@@ -53,13 +55,13 @@ export default function Hero({ profile }: HeroProps) {
                 href="/projects"
                 className="rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 dark:bg-blue-500 dark:hover:bg-blue-600"
               >
-                View projects
-              </Link>
+                {siteCopy.hero.ctas.projectsLabel}
+              </Link> 
               <Link
                 href="/case-studies"
                 className="rounded-full border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-900 transition hover:-translate-y-0.5 hover:border-blue-500 hover:text-blue-600 dark:border-gray-700 dark:text-gray-100 dark:hover:text-blue-400"
               >
-                View case studies
+                {siteCopy.hero.ctas.caseStudiesLabel}
               </Link>
 
             </div>

@@ -214,6 +214,12 @@ Notes & next steps
 
 (Will append commit show output and any final verification lines below after pushing)
 
+Commit: `184d57e` — `chore: BA hiring-signal content & UX audit (canonical links, headline centralization, reduced bio duplication, theme determinism)`
+
+Verification: `npm run -s lint && npm run -s build` — compiled successfully; no blocking lint errors.
+
+---
+
 ---
 
 ## 2026-01-06 — BA-focused content & UX audit (recruiter signal)
@@ -264,5 +270,51 @@ git commit -m "chore: BA hiring-signal content & UX audit (canonical links, head
 # verify lint/build
 npm run -s lint && npm run -s build
 ```
+
+---
+
+## 2026-01-06 — Content centralization: siteCopy & inventory
+
+Summary
+- Centralized all user-facing copy into `src/content/siteCopy.ts` and created `CONTENT_INVENTORY.md` mapping each copy key to its locations.
+- Replaced inline strings across components to read from `siteCopy`, removed duplicated copy, and applied cleanup rules (mention "Kenya" only once, removed "coming soon" labels, and avoided em dashes in visible text).
+
+Commands & key outputs
+
+- Search for visible copy and duplicates (examples):
+
+```sh
+# grep for candidate strings
+grep -RInE "Get in touch|coming soon|Kenya|linkedin|Screenshots|Certifications|View projects" src | sed -n '1,240p'
+# sample output: list of files and matches (see CONTENT_INVENTORY.md)
+```
+
+- Replace inline copy and verify build:
+
+```sh
+# lint & build validation
+npm run -s lint && npm run -s build
+# build excerpt (success):
+# ✓ Compiled successfully
+```
+
+Findings & changes
+- **New files:**
+  - `src/content/siteCopy.ts` — typed object (hero, header, footer, ctas, placeholders, contact, howIWork, funFacts).
+  - `CONTENT_INVENTORY.md` — human-readable mapping of copy keys to file locations and notes on duplicates.
+- **Refactors:** replaced inline strings to read from `siteCopy` in these components/pages: `Hero`, `HeroVisual`, `Header`, `Footer`, `CtaStrip`, `ScreenshotGallery`, `ContactCard`, `CertificationsStrip`, `Project` and `Case Study` detail pages, `FunFacts`, and the About page.
+- **Cleanup rules applied:**
+  - Mentioned "Kenya" exactly once (in hero copy) and removed direct place-name mentions elsewhere.
+  - Replaced all instances of "coming soon" with neutral placeholders (e.g., "Hero visual placeholder", "Screenshot placeholder").
+  - Removed em dashes from visible copy and used commas/periods for clarity.
+  - Canonicalized LinkedIn URL to `https://www.linkedin.com/in/sudhanvavkashyap/` and centralized its usage.
+- **Counts:** approximately **50** strings centralized; **6** duplicate/placeholder phrases removed or rewritten (hero CTA de-dup, coming-soon phrases, repeated country mentions, and similar), and **all** visible em dashes replaced.
+
+Next steps
+- Manual UX smoke check across main pages to spot any tone/spacing issues introduced by the refactor.
+- Optional: prepare 1–2 alternate hero headline variants for BA/PM or Pricing/Strategy roles for A/B testing.
+
+Verification
+- `npm run -s lint && npm run -s build` — compiled successfully; no blocking lint errors.
 
 ---

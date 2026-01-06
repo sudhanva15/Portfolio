@@ -1,4 +1,5 @@
 import type { Profile } from "@/data/profile";
+import { siteCopy } from "@/content/siteCopy";
 
 interface CertificationsStripProps {
   items: Profile["certifications"];
@@ -16,7 +17,7 @@ export default function CertificationsStrip({ items, compact = false }: Certific
         compact ? "md:px-6" : "md:px-8"
       }`}
     >
-      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">Certifications</p>
+      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">{siteCopy.sections.certificationsHeading}</p>
       <div className="mt-4 flex flex-wrap gap-3">
         {items.map((item) => (
           <span

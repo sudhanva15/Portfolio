@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { PlaceholderFrame } from "@/components/screenshot-gallery";
+import { siteCopy } from "@/content/siteCopy";
 
 const heroImage = {
   src: "/images/hero/mission-control.webp",
@@ -34,8 +35,8 @@ export default function HeroVisual() {
           </div>
         ) : (
           <div className="relative">
-            <PlaceholderFrame label="Hero visual coming soon" className="h-60 rounded-xl shadow-sm" />
-            <span className="absolute left-4 top-4 text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 wire-label">FIG. 01 — HERO VISUAL</span>
+            <PlaceholderFrame label={siteCopy.placeholders.heroVisual} className="h-60 rounded-xl shadow-sm" />
+            <span className="absolute left-4 top-4 text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 wire-label">FIG. 01 · HERO VISUAL</span> 
           </div>
         )}
       </div>

@@ -19,7 +19,7 @@ const locations: LocationNode[] = [
     id: "east-africa",
     label: "East Africa",
     years: "2000–2018",
-    description: "Where curiosity was born—wildlife, bikes, and backyard experiments.",
+    description: "Where curiosity was born: wildlife, bikes, and backyard experiments.",
     x: 50,
     y: 20,
   },
@@ -51,7 +51,7 @@ export default function SolarSystem() {
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-50">Where I&apos;ve Orbited</h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-            From East Africa&apos;s wildlife to India&apos;s design studios to US analytics classrooms—each place shaped how I solve problems.
+            From East Africa&apos;s wildlife to India&apos;s design studios to US analytics classrooms. Each place shaped how I solve problems.
           </p>
         </div>
         <div className="relative mx-auto h-[400px] max-w-4xl sm:h-[500px]">

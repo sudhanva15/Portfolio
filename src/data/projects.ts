@@ -64,7 +64,7 @@ export const projects: Project[] = [
     problem:
       "2025: 3000+ ETFs manage $8T in AUM, but retail investors still rely on Yahoo Finance screeners built in 2010. Institutional desks have Bloomberg terminals and quantitative teams. Solo investors, small advisors managing <$10M, and finance students? They're stuck with Excel and guesswork. When I joined my university's investment club, I realized most students treat portfolio construction like a black box. They hear \"diversification\" and \"risk profile\" but rarely see how those concepts translate into actual allocations or trade-offs. The ETF explosion, fee compression wars, and thematic investing boom created an opportunity: build an educational coach that makes optimization feel less like magic and more like a teaching conversation.",
     solution:
-      "I built Invest_AI as an educational ETF coach. It pulls data from multiple providers (with fallback logic to handle missing tickers), runs three different optimization engines in parallel—Hierarchical Risk Parity, Max Sharpe, and Min Variance—and turns each result into a guided narrative. Users answer eight risk-profiling questions, see allocations mapped to their tolerance, and read inline explainers about why the algorithm chose certain weights. The UI emphasizes clarity over flash: every constraint, every guardrail, every trade-off is surfaced directly in the interface.",
+      "I built Invest_AI as an educational ETF coach. It pulls data from multiple providers (with fallback logic to handle missing tickers), runs three different optimization engines in parallel, Hierarchical Risk Parity, Max Sharpe, and Min Variance, and turns each result into a guided narrative. Users answer eight risk-profiling questions, see allocations mapped to their tolerance, and read inline explainers about why the algorithm chose certain weights. The UI emphasizes clarity over flash: every constraint, every guardrail, every trade-off is surfaced directly in the interface.",
     impact: [
       "Built a validated ETF universe with multi-provider fallback and daily close data refresh (15-min delay on free tier) so the app behaves predictably even when APIs change or tickers go stale.",
       "Implemented three optimizers side-by-side, making trade-offs between risk, return, and hierarchy visible to non-technical users through plain-language summaries.",
@@ -79,11 +79,11 @@ export const projects: Project[] = [
       { label: "Completion lift", value: "+34%" },
     ],
     architecture:
-      "I ingest daily ETF snapshots from Tiingo and Stooq, clean and cache them in Postgres to avoid rate limits, then run a Python risk engine that applies user constraints (sector limits, ESG filters, leverage caps). Three optimizers run in parallel, each producing allocations. Monte Carlo + regime-shift simulations layer on top to show downside scenarios. The Streamlit UI narrates trade-offs with charts and guardrails, and Supabase captures telemetry so I can see where users drop off or get confused. The system is designed to be reproducible and safe for demos—never to execute real trades.",
+      "I ingest daily ETF snapshots from Tiingo and Stooq, clean and cache them in Postgres to avoid rate limits, then run a Python risk engine that applies user constraints (sector limits, ESG filters, leverage caps). Three optimizers run in parallel, each producing allocations. Monte Carlo + regime-shift simulations layer on top to show downside scenarios. The Streamlit UI narrates trade-offs with charts and guardrails, and Supabase captures telemetry so I can see where users drop off or get confused. The system is designed to be reproducible and safe for demos, never to execute real trades.",
     heroImage: {
       src: "/images/projects/invest-ai/hero.webp",
       alt: "Abstract constellation map showing ETF clusters as glowing nodes converging into a central portfolio signal",
-      caption: "Conceptual map of ETFs converging into one portfolio signal — built to make optimization feel less like magic and more like a teaching conversation.",
+      caption: "Conceptual map of ETFs converging into one portfolio signal - built to make optimization feel less like magic and more like a teaching conversation.",
     },
     gallery: [
       { src: "/images/projects/invest-ai/dashboard.webp", alt: "Invest_AI dashboard showing three optimizers side-by-side with allocation breakdowns", caption: "Three optimization engines run in parallel, making trade-offs visible to non-technical users." },
@@ -105,7 +105,7 @@ export const projects: Project[] = [
   },
   {
     slug: "unified-scraper",
-    title: "Unified Scraper — My Intelligence Layer for the Web",
+    title: "Unified Scraper - My Intelligence Layer for the Web",
     subtitle: "I built a self-healing scraping system that turns messy web data into a calm, reliable signal for my analytics and product work.",
     summary: "I built this because every “quick research question” turned into two days of debugging selectors, dealing with rate limits, and guessing why a script failed at 2 AM. I wanted a self-healing scraping system that turns messy web data into a calm, reliable signal for my analytics and product work.",
     role: "Builder · Data Engineering · Product Systems",
@@ -114,7 +114,7 @@ export const projects: Project[] = [
     tags: ["Data Engineering", "Automation", "Product Systems", "Analytics"],
     funFact: "I rigged drift alerts to play a synth siren in Slack so I could literally hear when extractors broke. Surprisingly effective.",
     problem:
-      "Most of my analytics and product research depends on information that isn’t available through clean APIs: product pages, pricing deltas, competitor changes, job openings, scattered documentation. Every time I needed data, I repeated the same cycle—write a one-off script, fight selectors, sprinkle in random waits, handle CAPTCHAs, patch retries, and hope it didn’t break overnight. The bottleneck wasn’t analysis; it was access.",
+      "Most of my analytics and product research depends on information that isn’t available through clean APIs: product pages, pricing deltas, competitor changes, job openings, scattered documentation. Every time I needed data, I repeated the same cycle, write a one-off script, fight selectors, sprinkle in random waits, handle CAPTCHAs, patch retries, and hope it didn’t break overnight. The bottleneck wasn’t analysis; it was access.",
     solution:
       "I built a unified scraping engine that handles Playwright rendering, stealth patterns, dynamic waits, and retry logic, then pushes everything through a stability layer with structured logging, cost tracking, and data lineage. On top of that, I added a calm “experience layer”: preview mode, schema mapping, and export flows so each scrape can be reused across projects instead of re-written from scratch.",
     impact: [
@@ -174,7 +174,7 @@ export const projects: Project[] = [
     tags: ["Research", "Strategy", "Healthcare", "Product"],
     funFact: "I sketched the first archetype storyboards inside a VR whiteboard to stay immersed in the medium. It felt right for a project about neurodivergent thinking.",
     problem:
-      "A healthcare research partner had spent months conducting 180 interviews about neurodiversity, attention patterns, and executive function. The result was a 300-page PDF that no executive would ever read. They needed archetypes, pricing logic, and interactive stories they could license globally—but the insights were trapped in dense transcripts. I've always been fascinated by how attention and cognitive load shape the way people use tools, especially in environments that demand constant context switching. I wanted to build something that reduced guilt and friction instead of just adding prettier lists.",
+      "A healthcare research partner had spent months conducting 180 interviews about neurodiversity, attention patterns, and executive function. The result was a 300-page PDF that no executive would ever read. They needed archetypes, pricing logic, and interactive stories they could license globally, but the insights were trapped in dense transcripts. I've always been fascinated by how attention and cognitive load shape the way people use tools, especially in environments that demand constant context switching. I wanted to build something that reduced guilt and friction instead of just adding prettier lists.",
     solution:
       "I led synthesis sprints to cluster the interviews into seven behavioral archetypes using topic modeling and manual tagging. Each archetype mapped to measurable outcomes, content needs, and design implications. I layered on TAM and pricing models, then built a React portal where stakeholders could explore narratives, metrics, and recommendations interactively. The UI emphasized comprehension: guided walkthroughs, motion microcopy, and attention-informed UX concepts like the Water Drain metaphor (progress indicators that feel less overwhelming for people who experience focus challenges). The goal was to make 180 interviews feel like a conversation, not a report.",
     impact: [
@@ -182,7 +182,7 @@ export const projects: Project[] = [
       "Built a pricing and licensing calculator that helped the client recoup study costs within three enterprise deals.",
       "Added guided walkthroughs with motion microcopy and attention-informed design patterns (optimized for people who get easily overwhelmed by notifications and context switching), lifting comprehension scores by 30% during pilot testing.",
       "Shipped opportunity sizing inputs so partners could plug in their reach numbers and instantly see revenue and impact ranges tailored to their market.",
-      "Designed the portal as a teaching tool: every archetype includes narrative context, visual summaries, and actionable next steps—no dense PDFs required.",
+      "Designed the portal as a teaching tool: every archetype includes narrative context, visual summaries, and actionable next steps, no dense PDFs required.",
     ],
     impactMetrics: [
       { label: "Interviews synthesized", value: "180" },
@@ -201,7 +201,7 @@ export const projects: Project[] = [
     heroImage: {
       src: "/images/projects/neurodivulge/hero.webp",
       alt: "Abstract illustration of a human silhouette with UI cards orbiting around it, some smooth and aligned, others jittered to represent cognitive friction",
-      caption: "Representing attention and cognitive load in digital products — built to reduce guilt and friction instead of just adding prettier lists.",
+      caption: "Representing attention and cognitive load in digital products - built to reduce guilt and friction instead of just adding prettier lists.",
     },
     gallery: [
       { src: "/images/projects/neurodivulge/archetypes.webp", alt: "Neurodivulge archetypes portal showing seven behavioral clusters with narrative context", caption: "Seven archetypes mapped from 180 interviews, each tied to measurable outcomes and design implications." },
@@ -231,8 +231,8 @@ export const projects: Project[] = [
       "Automated asset QA and packaging with Python scripts, saving the art team 18 hours per week in manual handoffs and reducing broken builds by 40%.",
       "Introduced prioritization scorecards that aligned PM and creative leads on experiment bets every sprint, reducing thrash and rework.",
       "Stored every playtest insight in Airtable with FigJam retro templates, making learnings searchable and reusable instead of trapped in Slack.",
-      "Built exposure to Unreal, Unity, diverse 3D modeling and archviz tools, VFX workflows, and cross-functional rituals at startup scale, working on Renderpub's proprietary VR platform—a SaaS-like suite for immersive storytelling.",
-      "The hybrid creative + product + ops nature of the role taught me how to translate between designers, engineers, and stakeholders—a foundation for product analytics and strategy work later.",
+      "Built exposure to Unreal, Unity, diverse 3D modeling and archviz tools, VFX workflows, and cross-functional rituals at startup scale, working on Renderpub's proprietary VR platform, a SaaS-like suite for immersive storytelling.",
+      "The hybrid creative + product + ops nature of the role taught me how to translate between designers, engineers, and stakeholders, a foundation for product analytics and strategy work later.",
     ],
     impactMetrics: [
       { label: "Scenes tested", value: "40+" },
@@ -241,7 +241,7 @@ export const projects: Project[] = [
       { label: "Broken builds", value: "-40%" },
     ],
     architecture:
-      "Notion brief templates feed Jira epics with acceptance criteria and asset checklists. Unity editors trigger Python lint scripts that catch broken materials, missing textures, and malformed metadata before export. Telemetry logs every user interaction to BigQuery. Looker dashboards surface drop-offs and friction points in real time. FigJam retro templates capture insights with tags for discoverability. The system is designed to be scrappy but rigorous—startup-scale ops without the chaos.",
+      "Notion brief templates feed Jira epics with acceptance criteria and asset checklists. Unity editors trigger Python lint scripts that catch broken materials, missing textures, and malformed metadata before export. Telemetry logs every user interaction to BigQuery. Looker dashboards surface drop-offs and friction points in real time. FigJam retro templates capture insights with tags for discoverability. The system is designed to be scrappy but rigorous, startup-scale ops without the chaos.",
     heroImage: {
       src: "/images/projects/renderpub-vr/hero-placeholder.png",
       alt: "Placeholder hero for Renderpub VR",

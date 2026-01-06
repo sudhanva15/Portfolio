@@ -7,6 +7,7 @@ import ScrollFadeIn from "@/components/scroll-fade-in";
 import FunFactBadge from "@/components/fun-fact-badge";
 import { projects } from "@/data/projects";
 import { funFacts } from "@/data/fun-facts";
+import { siteCopy } from "@/content/siteCopy";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -24,12 +25,12 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
   if (!project) {
     return {
-      title: "Project Not Found — Sudhanva Kashyap",
+      title: "Project Not Found - Sudhanva Kashyap",
     };
   }
 
   return {
-    title: `${project.title} — Sudhanva Kashyap`,
+    title: `${project.title} - Sudhanva Kashyap`,
     description: project.subtitle,
   };
 }
@@ -151,7 +152,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
         <AssetHero
           image={project.heroImage}
-          placeholderLabel="Project hero visual coming soon"
+          placeholderLabel={siteCopy.placeholders.heroVisual}
           aspect="16/9"
           className="mt-8"
         />
@@ -189,7 +190,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           {project.gallery && project.gallery.length > 0 ? (
             <ScreenshotGallery images={project.gallery} altPrefix={project.title} />
           ) : (
-            <p className="text-sm text-gray-600 dark:text-gray-400">Screenshots coming soon.</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">{siteCopy.placeholders.screenshot}</p>
           )}
         </section>
 

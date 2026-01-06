@@ -1,29 +1,12 @@
 import Link from "next/link";
-
-const ctas = [
-  {
-    label: "Explore builds",
-    description: "Dashboards, scrapers, and behavioral tools that ship and get used.",
-    href: "/projects",
-  },
-  {
-    label: "See decision stories",
-    description: "Case studies that follow the data from noise to recommendation.",
-    href: "/case-studies",
-  },
-  {
-    label: "Learn how I work",
-    description: "A hybrid of design thinking, analytics, and systems-level curiosity.",
-    href: "/about",
-  },
-];
+import { siteCopy } from "@/content/siteCopy";
 
 export default function CtaStrip() {
   return (
     <section className="border-b border-transparent py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {ctas.map((cta) => (
+          {siteCopy.ctaStrip.map((cta) => (
             <Link
               key={cta.href}
               href={cta.href}

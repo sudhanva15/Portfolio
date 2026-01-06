@@ -13,6 +13,7 @@ import { projects } from "@/data/projects";
 import { caseStudies } from "@/data/case-studies";
 import { skills } from "@/data/skills";
 import { howIWork } from "@/data/how-i-work";
+import { siteCopy } from "@/content/siteCopy";
 
 export default function Home() {
   return (
@@ -72,7 +73,7 @@ export default function Home() {
 
       <Section
         id="contact"
-        eyebrow="Get in touch"
+        eyebrow={siteCopy.header.contactLabel}
         title="Contact"
         description="If you're hiring for analytics or product roles and this resonates, I'd love to talk."
       >

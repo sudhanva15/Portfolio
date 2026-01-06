@@ -28,17 +28,17 @@ export const caseStudies: CaseStudy[] = [
       "I was competitively selected into SVC Consulting's strategy team to help a B2B SaaS client in the HR and talent space figure out whether a new physical-to-digital product could drive better engagement in campus hiring and early-career networking. The client had strong product-market intuition but needed structure around pilot design, buyer journeys, and where to focus limited resources before scaling GTM.",
     impact: [
       "Problem: The team had qualitative enthusiasm from early users but no structured data on who would actually use the product, in what context, and what success looked like. They were pitching to universities and career centers without a clear ICP or adoption framework.",
-      "Insight: I mapped five key buyer segments across students, universities, career centers, and corporate partners. I used the product myself the way a student in a new country might—reducing intro friction and tracking in-person connections—which helped me reframe the value prop from \"nice-to-have networking tool\" to \"essential social scaffolding for unfamiliar environments.\"",
+      "Insight: I mapped five key buyer segments across students, universities, career centers, and corporate partners. I used the product myself the way a student in a new country might, reducing intro friction and tracking in-person connections, which helped me reframe the value prop from \"nice-to-have networking tool\" to \"essential social scaffolding for unfamiliar environments.\"",
       "What I built: I designed a pilot framework with three phases, defined usage metrics tied to each ICP, sketched adoption curves based on campus lifecycle patterns, and identified where the product competes with or complements existing tools like LinkedIn, Handshake, and career center CRMs. Methods: Conducted 8 user interviews, mapped journey flows in Figma, and built adoption scenarios in spreadsheets.",
       "Decision & Trade-offs: We considered launching with students only vs. multi-sided launch with universities. I recommended phased: students first to prove engagement, then universities once we had usage data. Leadership chose the phased approach because it reduced upfront sales complexity and let product iterate faster based on real behavior.",
       "Why it mattered: The pilot structure gave the client a low-cost, phased approach they could run with a small team. The ICP mapping clarified which segments drove qualified demand. The narrative deck I authored translated qualitative excitement into a concrete story leadership could use in partner and investor conversations.",
-      "What I learned: Using the product as a research method—not just interviewing users—unlocked insights I wouldn't have found otherwise. It reinforced my belief that strategy work needs to be grounded in lived experience, not just data and frameworks. Next time, I'd build a lightweight dashboard earlier to track pilot metrics in real time instead of relying on manual checks.",
+      "What I learned: Using the product as a research method, not just interviewing users, unlocked insights I wouldn't have found otherwise. It reinforced my belief that strategy work needs to be grounded in lived experience, not just data and frameworks. Next time, I'd build a lightweight dashboard earlier to track pilot metrics in real time instead of relying on manual checks.",
     ],
     tags: ["Strategy", "B2B", "GTM", "Pilot design", "ICP mapping"],
     heroImage: {
       src: "/images/case-studies/penpal-b2b/hero.webp",
       alt: "Stylized campus map showing building icons connected to profile cards with engagement flow arrows",
-      caption: "University network diagram — mapping buyer segments and engagement flows for campus hiring and early-career networking.",
+      caption: "University network diagram - mapping buyer segments and engagement flows for campus hiring and early-career networking.",
     },
     secondaryImage: {
       src: "/images/case-studies/penpal-b2b/secondary.webp",
@@ -65,7 +65,7 @@ export const caseStudies: CaseStudy[] = [
     heroImage: {
       src: "/images/case-studies/svc-retention-pricing/hero.webp",
       alt: "Abstract dashboard showing cohort retention curves and pricing model comparisons",
-      caption: "Retention segmentation and pricing playbook — balancing ARPU growth with churn control through structured experimentation.",
+      caption: "Retention segmentation and pricing playbook - balancing ARPU growth with churn control through structured experimentation.",
     },
     secondaryImage: {
       src: "/images/case-studies/svc-retention-pricing/secondary.webp",
@@ -87,13 +87,14 @@ export const caseStudies: CaseStudy[] = [
       "What I built: Designed dashboards in Tableau that visualized weight distributions by speed band and workcenter, flagged out-of-spec runs in real time, and tracked variance trends over time. Also built a statistical model that quantified the contribution of speed, operator, and equipment factors to overall variability.",
       "Decision & Trade-offs: The ops team considered three interventions: operator retraining, speed limit enforcement, or equipment recalibration. I recommended recalibration at the two highest-variance workcenters based on the statistical evidence. Leadership chose recalibration because it was lower-cost than new equipment and showed measurable impact within one quarter.",
       "Why it mattered: The dashboards gave the ops team visibility they didn't have before. They used the findings to recalibrate equipment at two workcenters, which reduced out-of-spec rates by 18% in the following quarter. The work also gave me hands-on experience with process diagnostics, manufacturing data, and translating statistical findings into operational language.",
-      "What I learned: Manufacturing data is messy and context-dependent. Understanding the physical process—what happens on the factory floor—matters as much as the numbers. This project taught me to ask better questions about data provenance and process constraints. Next time, I'd shadow floor operators earlier to build intuition before diving into models.",
+      "What I learned: Manufacturing data is messy and context-dependent. Understanding the physical process, what happens on the factory floor, matters as much as the numbers. This project taught me to ask better questions about data provenance and process constraints. Next time, I'd shadow floor operators earlier to build intuition before diving into models.",
     ],
     tags: ["Operations", "Analytics", "Manufacturing", "Process diagnostics"],
     heroImage: {
       src: "/images/case-studies/perry-pricing-analytics/hero.webp",
       alt: "Modern factory dashboard showing abstract machines with speed dials and floating KPI panels for throughput and defect rates",
-      caption: "Operations diagnostics dashboard — surfacing patterns in weight variability, speed, and workcenter performance.",
+      caption: "Operations diagnostics dashboard - surfacing patterns in weight variability, speed, and workcenter performance.",
+
     },
     secondaryImage: {
       src: "/images/case-studies/perry-pricing-analytics/secondary.webp",

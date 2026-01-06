@@ -12,7 +12,42 @@
   }
 
   body {
-    @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-50 antialiased;
+    @apply text-gray-900 dark:text-gray-50 antialiased;
+    /* Backgrounds controlled by ThemedBackground; keep transparent here */
+    background-color: transparent;
+    background-image: none;
+  }
+
+  .dark body {
+    /* Dark mode: deep space with subtle starfield */
+    background-color: #050505;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.03) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.02) 0%, transparent 40%),
+      radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+      radial-gradient(1px 1px at 30% 50%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      radial-gradient(1px 1px at 60% 15%, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+      radial-gradient(1px 1px at 85% 40%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      radial-gradient(1px 1px at 45% 80%, rgba(255, 255, 255, 0.11) 1px, transparent 1px),
+      radial-gradient(1px 1px at 25% 90%, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+    background-size: 
+      100% 100%,
+      100% 100%,
+      300px 300px,
+      400px 400px,
+      350px 350px,
+      450px 450px,
+      380px 380px,
+      420px 420px;
+    background-position: 
+      0 0,
+      0 0,
+      0 0,
+      40px 60px,
+      130px 270px,
+      250px 100px,
+      80px 320px,
+      320px 180px;
   }
 
   ::selection {
@@ -29,4 +64,179 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- THEME BACKGROUNDS ------------------------------------ */
+
+/* Dark mode: deep space with stars + vignette */
+.theme-space {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.22), transparent 60%),
+    radial-gradient(circle at 90% 100%, rgba(147, 51, 234, 0.22), transparent 60%),
+    #020617;
+  overflow: hidden;
+}
+
+/* starfield layer */
+.theme-space::before {
+  content: "";
+  position: fixed;
+  inset: -80px;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(248,250,252,0.9) 1px, transparent 0),
+    radial-gradient(circle at 80% 30%, rgba(148,163,184,0.85) 1px, transparent 0),
+    radial-gradient(circle at 30% 80%, rgba(129,140,248,0.8) 1px, transparent 0),
+    radial-gradient(circle at 60% 60%, rgba(236, 72, 153,0.7) 1px, transparent 0),
+    radial-gradient(circle at 20% 90%, rgba(52,211,153,0.7) 1px, transparent 0);
+  background-size: 220px 220px, 260px 260px, 300px 300px, 340px 340px, 380px 380px;
+  opacity: 0.9;
+}
+
+/* vignette for depth */
+.theme-space::after {
+  content: "";
+  position: fixed;
+  inset: -20px;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at center, transparent 0, rgba(0,0,0,0.4) 70%);
+}
+
+/* Light mode: grid / newsletter wireframe */
+.theme-wireframe {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(148, 163, 184, 0.12), transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(148, 163, 184, 0.08), transparent 50%),
+    #fafaf8;
+  overflow: hidden;
+}
+
+.theme-wireframe::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    linear-gradient(to right, rgba(148,163,184,0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148,163,184,0.15) 1px, transparent 1px),
+    linear-gradient(to right, rgba(148,163,184,0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148,163,184,0.35) 1px, transparent 1px);
+  background-size: 16px 16px, 16px 16px, 80px 80px, 80px 80px;
+  opacity: 1;
+}
+
+/* subtle paper edge vignette */
+.theme-wireframe::after {
+  content: "";
+  position: fixed;
+  inset: -10px;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at center, transparent 20%, rgba(148,163,184,0.08) 70%, rgba(148,163,184,0.15) 100%);
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+}
+
+/* --- WIREFRAME UTILITIES (LIGHT MODE) -------------------- */
+
+/* Wire surface: for cards/panels */
+.wire-surface {
+  position: relative;
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .theme-wireframe .wire-surface:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* Wire surface with corner ticks (2.5D comic touch) */
+.wire-surface-ticked::before,
+.wire-surface-ticked::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid rgba(148,163,184,0.4);
+  pointer-events: none;
+}
+
+.wire-surface-ticked::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.wire-surface-ticked::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Wire section: for major content blocks */
+.wire-section {
+  border-top: 1px solid rgba(148,163,184,0.2);
+  border-bottom: 1px solid rgba(148,163,184,0.2);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .wire-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Wire divider: horizontal rule */
+.wire-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, rgba(148,163,184,0.8), transparent);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* Wire label: small caps section labels */
+.wire-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgb(100, 116, 139);
 }

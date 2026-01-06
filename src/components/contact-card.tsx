@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SocialIcon from "@/components/social-icon";
 import type { Profile } from "@/data/profile";
 
 interface ContactCardProps {
@@ -9,24 +10,14 @@ export default function ContactCard({ profile }: ContactCardProps) {
   const linkedinDisplay = profile.linkedin.replace(/^https?:\/\//, "");
   const contacts = [
     {
-      label: "Email",
-      value: profile.email,
-      href: `mailto:${profile.email}`,
-    },
-    {
       label: "LinkedIn",
       value: linkedinDisplay,
       href: profile.linkedin,
     },
-    {
-      label: "Resume",
-      value: "Download PDF",
-      href: profile.resumeUrl,
-    },
   ];
 
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-transform transition-shadow duration-200 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
+    <div className="rounded-2xl border p-6 shadow-sm backdrop-blur-sm transition-transform transition-shadow duration-200 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:shadow dark:border-slate-800/70 dark:bg-slate-900/70 border-slate-200/80 bg-white/80 wire-surface-ticked">
       <p className="text-base leading-relaxed text-gray-700 dark:text-gray-300">
         I’m currently open to full-time Product, Strategy, and Analytics roles (F1 OPT). Send a note and I’ll respond within a day.
       </p>
@@ -42,6 +33,19 @@ export default function ContactCard({ profile }: ContactCardProps) {
             </Link>
           </div>
         ))}
+        <p className="border-t border-gray-100 pt-4 text-sm text-gray-600 dark:border-gray-800 dark:text-gray-300">
+          Want my latest resume? Use the Get in touch button in the header to request it.
+        </p>
+      </div>
+      {/* Icon row */}
+      <div className="mt-4 flex items-center gap-2 border-t border-gray-100 pt-4 dark:border-gray-800">
+        <SocialIcon
+          href={profile.linkedin}
+          label="LinkedIn profile"
+          icon="linkedin"
+          variant="solid"
+          size={18}
+        />
       </div>
     </div>
   );

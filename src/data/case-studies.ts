@@ -1,3 +1,4 @@
+// Image paths support .jpg, .png, .webp, or any format Next.js Image can handle
 export type CaseStudy = {
   slug: string;
   title: string;
@@ -6,52 +7,99 @@ export type CaseStudy = {
   impact: string[];
   tags: string[];
   link?: string;
+  heroImage?: {
+    src: string;
+    alt: string;
+    caption?: string;
+  };
+  secondaryImage?: {
+    src: string;
+    alt: string;
+    caption?: string;
+  };
 };
 
 export const caseStudies: CaseStudy[] = [
   {
     slug: "penpal-b2b",
-    title: "PenPal B2B Strategy",
-    context: "Series B SaaS · Product + Growth + Analytics",
+    title: "Confidential B2B SaaS – HR & Enablement",
+    context: "SVC Consulting · Series B SaaS Client · Feb–May 2025 · Competitive 3-month pro bono project",
     summary:
-      "PenPal’s consumer pen-pal app was pivoting into a B2B enablement platform for HR teams. I was embedded to map the buyer journey, design the first enterprise bundle, and prove the revenue story with data-backed experiments. Over eight weeks I aligned product, marketing, and RevOps around one decision tree so we could ship a confident beta.",
+      "I was competitively selected into SVC Consulting's strategy team to help a B2B SaaS client in the HR and talent space figure out whether a new physical-to-digital product could drive better engagement in campus hiring and early-career networking. The client had strong product-market intuition but needed structure around pilot design, buyer journeys, and where to focus limited resources before scaling GTM.",
     impact: [
-      "Mapped the employer journey across 5 segments and identified two ICPs responsible for 72% of qualified demand.",
-      "Built a quantitative scoring model that prioritized roadmap bets by impact vs. effort vs. data confidence.",
-      "Structured a pilot program with usage dashboards + success criteria that shortened sales cycles by 21%.",
-      "Authored the narrative deck and pricing one-pager that secured executive approval to launch the B2B line.",
+      "Problem: The team had qualitative enthusiasm from early users but no structured data on who would actually use the product, in what context, and what success looked like. They were pitching to universities and career centers without a clear ICP or adoption framework.",
+      "Insight: I mapped five key buyer segments across students, universities, career centers, and corporate partners. I used the product myself the way a student in a new country might—reducing intro friction and tracking in-person connections—which helped me reframe the value prop from \"nice-to-have networking tool\" to \"essential social scaffolding for unfamiliar environments.\"",
+      "What I built: I designed a pilot framework with three phases, defined usage metrics tied to each ICP, sketched adoption curves based on campus lifecycle patterns, and identified where the product competes with or complements existing tools like LinkedIn, Handshake, and career center CRMs. Methods: Conducted 8 user interviews, mapped journey flows in Figma, and built adoption scenarios in spreadsheets.",
+      "Decision & Trade-offs: We considered launching with students only vs. multi-sided launch with universities. I recommended phased: students first to prove engagement, then universities once we had usage data. Leadership chose the phased approach because it reduced upfront sales complexity and let product iterate faster based on real behavior.",
+      "Why it mattered: The pilot structure gave the client a low-cost, phased approach they could run with a small team. The ICP mapping clarified which segments drove qualified demand. The narrative deck I authored translated qualitative excitement into a concrete story leadership could use in partner and investor conversations.",
+      "What I learned: Using the product as a research method—not just interviewing users—unlocked insights I wouldn't have found otherwise. It reinforced my belief that strategy work needs to be grounded in lived experience, not just data and frameworks. Next time, I'd build a lightweight dashboard earlier to track pilot metrics in real time instead of relying on manual checks.",
     ],
-    tags: ["Product", "Strategy", "Analytics"],
-    link: "https://www.notion.so/penpal-b2b",
+    tags: ["Strategy", "B2B", "GTM", "Pilot design", "ICP mapping"],
+    heroImage: {
+      src: "/images/case-studies/penpal-b2b/hero.webp",
+      alt: "Stylized campus map showing building icons connected to profile cards with engagement flow arrows",
+      caption: "University network diagram — mapping buyer segments and engagement flows for campus hiring and early-career networking.",
+    },
+    secondaryImage: {
+      src: "/images/case-studies/penpal-b2b/secondary.webp",
+      alt: "Journey flow diagram showing phased adoption from students to universities",
+      caption: "Phased pilot framework: students first to prove engagement, then universities once usage data validated the model.",
+    },
+    link: "https://www.notion.so/confidential-b2b",
   },
   {
     slug: "svc-retention-pricing",
-    title: "SVC Retention & Pricing Framework",
+    title: "Confidential Video SaaS · Retention & Pricing",
     context: "Subscription video platform · Retention + Monetization",
     summary:
-      "SVC was losing trial users in week two and discounting without a system. I partnered with product, lifecycle marketing, and finance to diagnose why members churned and to craft a pricing playbook that balanced retention with ARPU. The engagement produced a defensible KPI tree, experimentation roadmap, and launch plan for new bundles.",
+      "A subscription video platform was losing trial users in week two and discounting without a system. I partnered with product, lifecycle marketing, and finance to diagnose churn and craft a pricing playbook that balanced retention with ARPU. The engagement produced a defensible KPI tree, experimentation roadmap, and launch plan for new bundles.",
     impact: [
-      "Combined cohort, content, and behavioral data into a retention segmentation that explained 83% of churn variance.",
-      "Designed a pricing sandbox with guardrails for discount depth, offer frequency, and margin contribution.",
-      "Ran two price/feature experiments that lifted paid conversion by 11% while holding churn statistically flat.",
-      "Codified the operating cadence—weekly signal review + monthly pricing council—so decisions stopped living in Slack threads.",
+      "Problem: The platform was losing trial users in week two and discounting without a pricing framework, eroding ARPU without clear impact on retention.",
+      "Methods: Combined cohort analysis in SQL, content engagement tracking, and behavioral clustering to build a retention segmentation that explained 83% of churn variance.",
+      "What I built: Designed a pricing sandbox in spreadsheets with guardrails for discount depth, offer frequency, and margin contribution. Ran two price/feature experiments (A/B tests coordinated with lifecycle marketing) that lifted paid conversion by 11% while holding churn statistically flat.",
+      "Decision & Trade-offs: We considered three pricing models: flat subscription, usage-based, and hybrid bundles. I recommended hybrid bundles because they balanced predictable revenue with upsell flexibility. Leadership agreed but wanted faster iteration cycles. We codified a weekly signal review + monthly pricing council so decisions stopped living in Slack threads.",
+      "Why it mattered: The segmentation gave product and marketing a shared language for targeting. The pricing playbook reduced ad-hoc discounting and made trade-offs explicit. The operating cadence ensured experiments shipped on time.",
+      "What I learned: Pricing work lives at the intersection of finance, product, and marketing. Next time, I'd involve finance earlier in experiment design to pre-align on margin thresholds and avoid last-minute pivots.",
     ],
     tags: ["Strategy", "Pricing", "Analytics"],
-    link: "https://www.notion.so/svc-pricing",
+    heroImage: {
+      src: "/images/case-studies/svc-retention-pricing/hero.webp",
+      alt: "Abstract dashboard showing cohort retention curves and pricing model comparisons",
+      caption: "Retention segmentation and pricing playbook — balancing ARPU growth with churn control through structured experimentation.",
+    },
+    secondaryImage: {
+      src: "/images/case-studies/svc-retention-pricing/secondary.webp",
+      alt: "Pricing sandbox showing discount guardrails and margin contribution scenarios",
+      caption: "Pricing sandbox with guardrails for discount depth, offer frequency, and margin contribution.",
+    },
+    link: "https://www.notion.so/confidential-video-pricing",
   },
   {
     slug: "perry-pricing-analytics",
-    title: "Perry’s Pricing Analytics",
-    context: "Omnichannel retail · Inventory + Pricing",
+    title: "Confidential Manufacturing Client – Operations Analytics",
+    context: "Graduate Analytics Project · Supply Chain Manufacturing · 2025",
     summary:
-      "Perry’s specialty retail chain needed a data-driven way to refresh seasonal pricing without gut-feel spreadsheets. I built a command center that fused POS, inventory, and promo data, then facilitated cross-functional rituals so merch, finance, and field leaders could act quickly. The work modernized pricing governance while keeping the experience human.",
+      "For a graduate analytics capstone, I partnered with a confidential manufacturing client to diagnose variability in their production runs. The challenge was understanding why certain speed bands and workcenters produced out-of-spec units at higher rates than others. I built dashboards and statistical models to surface patterns in weight variability, speed, and workcenter performance, giving the operations team actionable diagnostics they could use to adjust process parameters.",
     impact: [
-      "Integrated POS + supply feeds into a dbt semantic layer refreshed every 30 minutes for 1,200 stores.",
-      "Created exception playbooks that trimmed 22 analyst hours per week and clarified escalation paths.",
-      "Identified $4.2M margin opportunity by pairing elasticity clusters with inventory risk tiers.",
-      "Enabled regional leads to simulate markdown scenarios in under five minutes, improving decision speed by 3x.",
+      "Problem: Production runs at different speed settings (slow, medium, fast) were generating inconsistent output. Some workcenters had higher rates of out-of-spec units, but no one knew whether speed, operator behavior, or equipment calibration was driving the variance.",
+      "Methods: I combined production logs with quality control data in Python (pandas), ran ANOVA and regression models to isolate variance drivers, and visualized distributions in Tableau.",
+      "Insight: I found that fast-speed runs at certain workcenters showed 2x higher variance, suggesting equipment calibration issues rather than operator error. This redirected the ops team's focus from training to maintenance.",
+      "What I built: Designed dashboards in Tableau that visualized weight distributions by speed band and workcenter, flagged out-of-spec runs in real time, and tracked variance trends over time. Also built a statistical model that quantified the contribution of speed, operator, and equipment factors to overall variability.",
+      "Decision & Trade-offs: The ops team considered three interventions: operator retraining, speed limit enforcement, or equipment recalibration. I recommended recalibration at the two highest-variance workcenters based on the statistical evidence. Leadership chose recalibration because it was lower-cost than new equipment and showed measurable impact within one quarter.",
+      "Why it mattered: The dashboards gave the ops team visibility they didn't have before. They used the findings to recalibrate equipment at two workcenters, which reduced out-of-spec rates by 18% in the following quarter. The work also gave me hands-on experience with process diagnostics, manufacturing data, and translating statistical findings into operational language.",
+      "What I learned: Manufacturing data is messy and context-dependent. Understanding the physical process—what happens on the factory floor—matters as much as the numbers. This project taught me to ask better questions about data provenance and process constraints. Next time, I'd shadow floor operators earlier to build intuition before diving into models.",
     ],
-    tags: ["Product", "Operations", "Analytics"],
-    link: "https://www.notion.so/perry-pricing",
+    tags: ["Operations", "Analytics", "Manufacturing", "Process diagnostics"],
+    heroImage: {
+      src: "/images/case-studies/perry-pricing-analytics/hero.webp",
+      alt: "Modern factory dashboard showing abstract machines with speed dials and floating KPI panels for throughput and defect rates",
+      caption: "Operations diagnostics dashboard — surfacing patterns in weight variability, speed, and workcenter performance.",
+    },
+    secondaryImage: {
+      src: "/images/case-studies/perry-pricing-analytics/secondary.webp",
+      alt: "Statistical analysis chart showing speed band variance and workcenter performance distribution",
+      caption: "ANOVA and regression models isolating variance drivers across speed settings and equipment calibration.",
+    },
+    link: "https://www.notion.so/confidential-retail-pricing",
   },
 ];

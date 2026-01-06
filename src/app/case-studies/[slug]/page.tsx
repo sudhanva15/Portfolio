@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import AssetHero from "@/components/asset-hero";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PlaceholderFrame } from "@/components/screenshot-gallery";
+import ScrollFadeIn from "@/components/scroll-fade-in";
+import FunFactBadge from "@/components/fun-fact-badge";
 import { caseStudies } from "@/data/case-studies";
+import { funFacts } from "@/data/fun-facts";
 
 interface CaseStudyPageProps {
   params: Promise<{
@@ -36,9 +42,16 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
     notFound();
   }
 
+  // Map case study slug to a fun fact
+  const studyFactMap: Record<string, string> = {
+    "penpal-b2b": "svc-consulting",
+    "manufacturing-pricing": "racing-sim-retro",
+  };
+  const studyFact = funFacts.find((f) => f.id === studyFactMap[slug]);
+
   return (
-    <article className="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-50" aria-labelledby="case-study-title">
-      <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-0">
+    <article className="text-gray-900 dark:text-gray-50" aria-labelledby="case-study-title">
+      <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="space-y-4">
           <Link
             href="/case-studies"
@@ -46,23 +59,18 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
           >
             ← Back to case studies
           </Link>
-          <p className="text-sm font-medium text-gray-500 dark:text-gray-400">{study.context}</p>
-          <h1 id="case-study-title" className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-50">
-            {study.title}
-          </h1>
-          <p className="max-w-prose text-lg leading-relaxed text-gray-700 dark:text-gray-300">{study.summary}</p>
           {study.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 pt-2 text-sm text-gray-600 dark:text-gray-300">
+            <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">
               {study.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-gray-200 bg-white px-3 py-1 font-medium dark:border-gray-800 dark:bg-gray-900"
-                >
-                  {tag}
-                </span>
+                <span key={tag}>{tag}</span>
               ))}
             </div>
           )}
+          <h1 id="case-study-title" className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-50">
+            {study.title}
+          </h1>
+          <p className="text-sm font-medium text-gray-500 dark:text-gray-400">{study.context}</p>
+          <p className="max-w-prose text-lg leading-relaxed text-gray-700 dark:text-gray-300">{study.summary}</p>
           {study.link && (
             <Link
               href={study.link}
@@ -73,26 +81,72 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
               View supporting doc →
             </Link>
           )}
+          <div className="h-[1px] w-full mb-8 bg-gradient-to-r from-sky-400/90 via-purple-400/90 to-emerald-300/70 dark:opacity-100 opacity-80" />
         </div>
 
-        <div className="mt-6 rounded-2xl border border-gray-200 bg-gray-50 p-6 text-sm text-gray-600 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">Visual</p>
-          <p className="mt-2 leading-relaxed">
-            Case study visual coming soon — this space will host funnels, KPI dashboards, or journey maps.
-          </p>
+        <AssetHero
+          image={study.heroImage}
+          placeholderLabel="Case study hero visual coming soon"
+          aspect="16/9"
+          className="mt-8"
+        />
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
+          <ScrollFadeIn>
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-50">Impact</h2>
+              <ul className="mt-6 space-y-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                {study.impact.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="text-blue-600 dark:text-blue-400">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </ScrollFadeIn>
+          <ScrollFadeIn delay={0.2}>
+            <div className="h-full rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-transform transition-shadow duration-200 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-md dark:border-gray-800 dark:bg-gray-900 wire-surface-ticked">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">Secondary visual</p>
+              {study.secondaryImage ? (
+                <div className="mt-4 space-y-2">
+                  <div className="overflow-hidden rounded-xl border border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
+                    <Image
+                      src={study.secondaryImage.src}
+                      alt={study.secondaryImage.alt}
+                      width={1200}
+                      height={800}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  {study.secondaryImage.caption && (
+                    <p className="text-center text-xs italic text-gray-600 dark:text-gray-400">{study.secondaryImage.caption}</p>
+                  )}
+                </div>
+              ) : (
+                <PlaceholderFrame
+                  label="Secondary visual coming soon"
+                  className="mt-4 h-40 rounded-xl text-sm font-medium shadow-sm"
+                />
+              )}
+            </div>
+          </ScrollFadeIn>
         </div>
 
-        <section className="mt-12">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-50">Impact</h2>
-          <ul className="mt-6 space-y-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-            {study.impact.map((item) => (
-              <li key={item} className="flex gap-2">
-                <span className="text-blue-600 dark:text-blue-400">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
+        {/* Field Note - personal context */}
+        {studyFact && (
+          <ScrollFadeIn>
+            <section className="mt-16 border-t border-gray-200 pt-12 dark:border-gray-800">
+              <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">
+                Field note
+              </h2>
+              <div className="mt-6">
+                <FunFactBadge fact={studyFact} size="md" />
+              </div>
+            </section>
+          </ScrollFadeIn>
+        )}
       </div>
     </article>
   );

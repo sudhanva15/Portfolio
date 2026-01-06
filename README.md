@@ -41,25 +41,33 @@ Edit or extend those files to add new work without touching layout logic.
 
 ## Deploying via GitHub + Vercel
 
-This project is designed to deploy from a GitHub repository through Vercel.
+This project is designed to deploy from a GitHub repository through Vercel. A remote hasn’t been configured yet, so start by creating one.
 
-### 1. Push to GitHub
+### 1. Create a GitHub repo and add the remote
+
+1. Create a repository on GitHub (for example, `https://github.com/<USERNAME>/<REPO_NAME>`).
+2. From this project folder, add the remote and (optionally) rename your default branch:
+
+```bash
+git remote add origin https://github.com/<USERNAME>/<REPO_NAME>.git
+git branch -M main   # optional if you prefer "main" as the default branch
+```
+
+### 2. Push your code
 
 ```bash
 git status
 git add .
 git commit -m "Finalize portfolio for deployment"
-git push    # or: git push -u origin main
+git push -u origin main
 ```
 
-Ensure the remote repository exists on GitHub (e.g., `https://github.com/<user>/portfolio`).
-
-### 2. Connect the repo in Vercel
+### 3. Connect the repo to Vercel
 
 1. Visit https://vercel.com/import and choose **Import Git Repository**.
-2. Select the portfolio repo from GitHub.
-3. Vercel auto-detects Next.js, runs `npm run build`, and serves from `.next`.
-4. Click **Deploy**. Each push to the default branch will trigger a new deployment automatically.
+2. Select the portfolio repo you just pushed and continue with GitHub if prompted.
+3. Vercel will auto-detect Next.js, run `npm run build`, and serve from `.next`.
+4. Click **Deploy**. Each push to `main` will trigger a new deployment automatically.
 
 ## Deploying with the Vercel CLI (optional)
 

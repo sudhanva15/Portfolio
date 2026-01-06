@@ -9,32 +9,32 @@ export type HowIWorkContent = {
 
 export const howIWork: HowIWorkContent = {
   summary:
-    "I blend analytical structure with design sensibility: clarify the decision, map the signals we trust, and craft artifacts that help teams move with calm confidence.",
+    "I like to zoom out, then zoom in. First I map the system, the people, and the incentives. Then I use data, experiments, and design to make that system feel calmer and more legible. My background in VR, behavior design, and analytics means I’m comfortable moving between interface details, model choices, and the business story they need to support.",
   principles: [
     {
-      title: "Start with clarity",
-      description: "Define the decision, success metric, and unknowns up front so every teammate understands the target state.",
-      emoji: "🎯",
+      title: "Structure first, then creativity.",
+      description: "I start with constraints, metrics, and edge cases, then explore creative ways to work within them.",
+      emoji: "🧭",
     },
     {
-      title: "Structured build",
-      description: "Decompose messy problems into calm systems—roadmaps, instrumentation, and rituals that scale without drama.",
-      emoji: "🧱",
+      title: "Fast feedback loops.",
+      description: "I’d rather ship a small version, instrument it well, and learn, than polish something in isolation.",
+      emoji: "🔁",
     },
     {
-      title: "Fast iteration",
-      description: "Prototype, test, and narrate findings quickly so partners see progress and can course-correct early.",
-      emoji: "⚡",
+      title: "Explainable analytics.",
+      description: "If a stakeholder can’t explain the logic to someone else, the model or dashboard isn’t done yet.",
+      emoji: "🔍",
     },
     {
-      title: "User empathy",
-      description: "Pair data with field context—shadow users, run interviews, and translate insights into stories teams feel.",
+      title: "Empathy for both users and teams.",
+      description: "I care about how tools feel to use, and how realistically a team can maintain them.",
       emoji: "🤝",
     },
     {
-      title: "Storytelling",
-      description: "Distill complex analyses into visuals and memos that make the next step obvious for leadership.",
-      emoji: "📣",
+      title: "Written clarity.",
+      description: "I rely heavily on clear docs, diagrams, and narratives so decisions don’t vanish into meetings.",
+      emoji: "📝",
     },
   ],
 };

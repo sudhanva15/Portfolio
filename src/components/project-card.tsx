@@ -12,7 +12,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article
-      className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-transform transition-shadow duration-200 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-md dark:border-gray-800 dark:bg-gray-900"
+      className="group rounded-2xl border p-6 shadow-sm backdrop-blur-sm transition-transform transition-shadow duration-200 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:shadow dark:border-slate-800/70 dark:bg-slate-900/70 border-slate-200/80 bg-white/80 wire-surface wire-surface-ticked"
       aria-labelledby={`${project.slug}-title`}
     >
       <div className="flex items-center justify-between gap-3">
@@ -27,15 +27,25 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {project.title}
       </h3>
       <p className="mt-1 text-sm font-medium text-gray-500 dark:text-gray-400">{project.role}</p>
-      <p className="mt-3 text-base text-gray-700 dark:text-gray-300">{project.subtitle}</p>
-      <ul className="mt-4 space-y-2 text-sm text-gray-700 dark:text-gray-300">
-        {project.impact.map((detail) => (
-          <li key={detail} className="flex gap-2">
-            <span className="text-blue-600 dark:text-blue-400">•</span>
-            <span className="max-w-prose leading-relaxed">{detail}</span>
-          </li>
-        ))}
-      </ul>
+      {project.collaborators && project.collaborators.length > 0 && (
+        <p className="mt-1 text-xs italic text-gray-500 dark:text-gray-400">
+          w/ {project.collaborators[0].name}
+        </p>
+      )}
+      <p className="mt-3 text-base text-gray-700 dark:text-gray-300">{project.summary ?? project.subtitle}</p>
+      {project.impactMetrics && project.impactMetrics.length > 0 && (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {project.impactMetrics.slice(0, 2).map((metric) => (
+            <span
+              key={metric.label}
+              className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300"
+            >
+              <span className="text-[0.65rem] uppercase tracking-wider text-gray-500 dark:text-gray-400">{metric.label}:</span>
+              <span className="font-semibold">{metric.value}</span>
+            </span>
+          ))}
+        </div>
+      )}
       <div className="mt-6 flex flex-wrap items-center gap-2 text-xs font-medium text-gray-500 dark:text-gray-400">
         {project.techStack.map((tool) => (
           <span key={tool} className="rounded-full border border-gray-200 px-3 py-1 dark:border-gray-700">

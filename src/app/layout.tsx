@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "next-themes";
 import SiteLayout from "@/components/layout/site-layout";
+import ThemedBackground from "@/components/themed-background";
 import "./globals.css";
 
 const inter = Inter({
@@ -21,13 +22,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Minimal utility to join class names
+  const cn = (...classes: Array<string | false | undefined | null>) => classes.filter(Boolean).join(" ");
+
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} bg-white font-sans text-gray-900 dark:bg-gray-950 dark:text-gray-50`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-          <SiteLayout>{children}</SiteLayout>
+      <body suppressHydrationWarning className={cn(inter.variable, "min-h-screen font-sans antialiased")}> 
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ThemedBackground>
+            <SiteLayout>{children}</SiteLayout>
+          </ThemedBackground>
         </ThemeProvider>
       </body>
     </html>
   );
 }
+
+// ThemedBackground is a client component imported from src/components/themed-background

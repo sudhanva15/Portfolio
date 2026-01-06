@@ -9,29 +9,25 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
   const detailHref = `/case-studies/${study.slug}`;
   return (
     <article
-      className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-transform transition-shadow duration-200 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-md dark:border-gray-800 dark:bg-gray-900"
+      className="rounded-2xl border p-6 shadow-sm backdrop-blur-sm transition-transform transition-shadow duration-200 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-md dark:border-slate-800/70 dark:bg-slate-900/70 border-slate-200/80 bg-white/80 wire-surface wire-surface-ticked"
       aria-labelledby={`${study.slug}-title`}
     >
+      <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">
+        {study.tags.map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </div>
       <p className="text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">{study.context}</p>
       <h3 id={`${study.slug}-title`} className="mt-3 text-xl font-semibold text-gray-900 dark:text-gray-50">
         {study.title}
       </h3>
       <p className="mt-3 text-base text-gray-700 dark:text-gray-300">{study.summary}</p>
-      <ul className="mt-4 space-y-2 text-sm text-gray-700 dark:text-gray-300">
-        {study.impact.map((item) => (
-          <li key={item} className="flex gap-2">
-            <span className="text-blue-600 dark:text-blue-400">•</span>
-            <span className="leading-relaxed">{item}</span>
-          </li>
-        ))}
-      </ul>
-      <div className="mt-6 flex flex-wrap gap-2">
-        {study.tags.map((tag) => (
-          <span key={tag} className="rounded-full border border-gray-200 px-3 py-1 text-xs font-medium text-gray-600 dark:border-gray-700 dark:text-gray-300">
-            {tag}
-          </span>
-        ))}
-      </div>
+      {study.impact && study.impact.length > 0 && (
+        <p className="mt-4 flex gap-2 text-sm text-gray-700 dark:text-gray-300">
+          <span className="text-blue-600 dark:text-blue-400">→</span>
+          <span className="leading-relaxed">{study.impact[0]}</span>
+        </p>
+      )}
       <div className="mt-6 flex flex-wrap gap-4 text-sm font-semibold">
         <Link
           href={detailHref}

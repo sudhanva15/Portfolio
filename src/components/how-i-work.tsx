@@ -6,7 +6,7 @@ interface HowIWorkProps {
 
 export default function HowIWork({ content }: HowIWorkProps) {
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-transform transition-shadow duration-200 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
+    <div className="rounded-2xl border p-6 shadow-sm backdrop-blur-sm transition-transform transition-shadow duration-200 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-md dark:border-slate-800/70 dark:bg-slate-900/70 border-slate-200/80 bg-white/80 wire-surface-ticked">
       <p className="text-base leading-relaxed text-gray-700 dark:text-gray-300">{content.summary}</p>
       <ul className="mt-6 space-y-4 text-sm text-gray-700 dark:text-gray-300">
         {content.principles.map((principle) => (

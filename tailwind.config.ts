@@ -21,6 +21,9 @@ const config: Config = {
       boxShadow: {
         subtle: "0px 8px 30px rgba(15, 23, 42, 0.08)",
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(circle, var(--tw-gradient-stops))',
+      },
     },
   },
   plugins: [],

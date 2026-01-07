@@ -26,6 +26,11 @@ export type Project = {
     alt: string;
     caption?: string;
   }[];
+  galleryHidden?: {
+    src: string;
+    alt: string;
+    caption?: string;
+  }[];
   diagramLabel?: string;
   funFact?: string;
   techStack: string[];
@@ -80,13 +85,20 @@ export const projects: Project[] = [
       "I ingest daily ETF snapshots from Tiingo and Stooq, clean and cache them in Postgres to avoid rate limits, then run a Python risk engine that applies user constraints (sector limits, ESG filters, leverage caps). Three optimizers run in parallel, each producing allocations. Monte Carlo + regime-shift simulations layer on top to show downside scenarios. The Streamlit UI narrates trade-offs with charts and guardrails, and Supabase captures telemetry so I can see where users drop off or get confused. The system is designed to be reproducible and safe for demos, never to execute real trades.",
     heroImage: {
       src: "/images/projects/invest-ai/hero.webp",
-      alt: "Abstract constellation map showing ETF clusters as glowing nodes converging into a portfolio allocation map",
-      caption: "Conceptual map of ETFs converging into an allocation map, visualizing allocations and trade-offs for instructors and students.",
+      alt: "Invest_AI landing page showing the portfolio recommender overview and navigation",
+      caption: "Landing screen that introduces the Invest_AI flow and core learning steps.",
     },
     gallery: [
-      { src: "/images/projects/invest-ai/dashboard.webp", alt: "Invest_AI dashboard showing three optimizers side-by-side with allocation breakdowns", caption: "Three optimization engines run in parallel, making trade-offs visible to non-technical users." },
-      { src: "/images/projects/invest-ai/risk-profile.webp", alt: "Invest_AI risk profiling interface with eight guided questions", caption: "Eight risk-profiling questions map user tolerance to concrete allocations." },
-      { src: "/images/projects/invest-ai/portfolio.webp", alt: "Invest_AI portfolio view with Monte Carlo simulation corridors", caption: "Monte Carlo simulations show downside corridors instead of single-point Sharpe ratios." },
+      { src: "/images/projects/invest-ai/dashboard.webp", alt: "Invest_AI dashboard overview with portfolio summary and allocation table", caption: "Dashboard overview with portfolio summary, holdings, and allocation breakdowns." },
+      { src: "/images/projects/invest-ai/risk-profile.webp", alt: "Invest_AI risk profiling screen with income and questionnaire panels", caption: "Risk profile builder combining financial inputs with preference questions." },
+      { src: "/images/projects/invest-ai/portfolio.webp", alt: "Invest_AI portfolio recommendation view with risk band selection and allocations", caption: "Recommendation view highlighting the selected portfolio within the target risk band." },
+    ],
+    galleryHidden: [
+      { src: "/images/projects/invest-ai/portfolios-comparison.webp", alt: "Invest_AI portfolio comparison table with multiple strategies side-by-side", caption: "Portfolio comparison table showing risk, volatility, and Sharpe across candidate portfolios." },
+      { src: "/images/projects/invest-ai/portfolios-run-simulation.webp", alt: "Invest_AI simulation run screen with risk sliders and configuration panels", caption: "Simulation run controls for selecting objectives and generating portfolio candidates." },
+      { src: "/images/projects/invest-ai/macros-1.webp", alt: "Invest_AI macroeconomic indicators dashboard with CPI and interest rate charts", caption: "Macroeconomic indicators explain the market context behind portfolio performance." },
+      { src: "/images/projects/invest-ai/macros-2.webp", alt: "Invest_AI macro indicators view with unemployment trends and implications", caption: "Macro indicators with scenario notes to connect data to portfolio implications." },
+      { src: "/images/projects/invest-ai/settings.webp", alt: "Invest_AI settings screen showing beginner mode explanations", caption: "Settings panel that toggles beginner mode and expands inline explanations." },
     ],
     diagramLabel: "Invest_AI architecture sketch",
     techStack: ["Python", "Pandas", "NumPy", "Postgres", "Streamlit", "Supabase", "FRED"],

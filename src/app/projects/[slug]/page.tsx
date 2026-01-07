@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import AssetHero from "@/components/asset-hero";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ScreenshotGallery, { PlaceholderFrame } from "@/components/screenshot-gallery";
+import ScreenshotGallery from "@/components/screenshot-gallery";
+import PlaceholderFrame from "@/components/placeholder-frame";
 import ScrollFadeIn from "@/components/scroll-fade-in";
 import FunFactBadge from "@/components/fun-fact-badge";
 import { projects } from "@/data/projects";
@@ -188,7 +189,12 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
         <section className="mt-10">
           {project.gallery && project.gallery.length > 0 ? (
-            <ScreenshotGallery images={project.gallery} altPrefix={project.title} />
+            <ScreenshotGallery
+              images={[...project.gallery, ...(project.galleryHidden ?? [])]}
+              altPrefix={project.title}
+              maxVisible={project.gallery.length}
+              enableExpand={Boolean(project.galleryHidden?.length)}
+            />
           ) : (
             <p className="text-sm text-gray-600 dark:text-gray-400">{siteCopy.placeholders.screenshot}</p>
           )}

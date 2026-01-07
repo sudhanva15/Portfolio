@@ -20,7 +20,7 @@ Projects
 
 Invest_AI
 - `public/images/projects/invest-ai/hero.webp`
-  - Content: Constellation-style map of ETFs converging into a central portfolio node.
+  - Content: Invest_AI landing page overview introducing the workflow.
   - Aspect: 16:9.
 - `public/images/projects/invest-ai/dashboard.webp`
   - Content: Side-by-side optimizer dashboards with allocations.
@@ -31,6 +31,12 @@ Invest_AI
 - `public/images/projects/invest-ai/portfolio.webp`
   - Content: Monte Carlo corridor chart or risk-return envelope.
   - Aspect: 16:9 or square-safe crop.
+- Optional expanded gallery (revealed via + tile):
+  - `public/images/projects/invest-ai/portfolios-comparison.webp` — portfolio comparison table.
+  - `public/images/projects/invest-ai/portfolios-run-simulation.webp` — simulation run controls and risk sliders.
+  - `public/images/projects/invest-ai/macros-1.webp` — macro indicators dashboard view.
+  - `public/images/projects/invest-ai/macros-2.webp` — macro indicators detail view.
+  - `public/images/projects/invest-ai/settings.webp` — settings page with beginner mode.
 
 Unified Scraper
 - `public/images/projects/unified-scraper/hero.webp`

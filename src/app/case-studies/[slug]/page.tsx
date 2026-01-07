@@ -3,7 +3,7 @@ import Image from "next/image";
 import AssetHero from "@/components/asset-hero";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PlaceholderFrame } from "@/components/screenshot-gallery";
+import PlaceholderFrame from "@/components/placeholder-frame";
 import ScrollFadeIn from "@/components/scroll-fade-in";
 import FunFactBadge from "@/components/fun-fact-badge";
 import { caseStudies } from "@/data/case-studies";

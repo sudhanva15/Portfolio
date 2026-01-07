@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "@/components/theme-toggle";
+import SocialIcon from "@/components/social-icon";
 import { profile } from "@/data/profile";
 import { siteCopy } from "@/content/siteCopy";
 
@@ -35,6 +36,7 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
+          <SocialIcon icon="linkedin" href={siteCopy.contact.linkedinUrl} label={siteCopy.footer.linkedinLabel} />
           <Link
             href={`mailto:${profile.email}`}
             className="hidden rounded-full border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 transition hover:-translate-y-0.5 hover:border-blue-500 hover:text-blue-600 dark:border-gray-800 dark:text-gray-300 dark:hover:text-blue-400 sm:inline-flex"

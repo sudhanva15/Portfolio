@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { PlaceholderFrame } from "@/components/screenshot-gallery";
+import PlaceholderFrame from "@/components/placeholder-frame";
 import { siteCopy } from "@/content/siteCopy";
 
 const heroImage = {

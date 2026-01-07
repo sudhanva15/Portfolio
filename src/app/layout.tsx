@@ -30,6 +30,8 @@ export default function RootLayout({
       <head>
         {/* Ensure the page defaults to dark on first paint unless a user preference is stored */}
         <script dangerouslySetInnerHTML={{ __html: `(function(){try{var ls=localStorage.getItem('theme'); if(ls) return; document.documentElement.classList.add('dark');}catch(e){document.documentElement.classList.add('dark');}})();` }} />
+        {/* Quick inline dark fallback styles to avoid an interim light background flash */}
+        <style dangerouslySetInnerHTML={{ __html: `html, body { background-color: #020617; color: #f8fafc; }` }} />
       </head>
       <body suppressHydrationWarning className={cn(inter.variable, "min-h-screen font-sans antialiased")}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>

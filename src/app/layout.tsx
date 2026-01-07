@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Sudhanva Kashyap — Analytics Strategist",
+  title: "Sudhanva Kashyap - Analytics Strategist",
   description:
     "Portfolio highlighting Sudhanva Kashyap's analytics, product strategy, and design-minded approach.",
   metadataBase: new URL("https://sudhanva-portfolio.example"),

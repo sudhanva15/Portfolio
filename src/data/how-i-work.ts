@@ -9,7 +9,7 @@ export type HowIWorkContent = {
 
 export const howIWork: HowIWorkContent = {
   summary:
-    "I like to zoom out, then zoom in. First I map the system, the people, and the incentives. Then I use data, experiments, and design to make that system feel calmer and more legible. My background in VR, behavior design, and analytics means I’m comfortable moving between interface details, model choices, and the business story they need to support.",
+    "I like to zoom out, then zoom in. First I map the system, the people, and the incentives. Then I use data, experiments, and design to make that system more reliable and easier to act on. My background in VR, behavior design, and analytics means I’m comfortable moving between interface details, model choices, and the business story they need to support.",
   principles: [
     {
       title: "Structure first, then creativity.",

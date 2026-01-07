@@ -350,4 +350,46 @@ Next steps
 
 - If you'd like, I can run a short visual smoke test and report any small spacing/focus findings; otherwise this change is ready to be committed and pushed as a follow-up entry.
 
+## 2026-01-07 — Content rewrite for recruitability (hero/profile/projects/case studies)
+
+Summary
+- Rewrote and centralized site copy to sharpen recruiter-facing signal for US-based early-career Product / Analytics / Strategy roles. Changes focused on concise, decision-oriented prose (problem → approach → outcome), removing vague or repetitive phrasing (e.g., removed visible "calm" and "turn messy") and centralizing contact, headline, and CTA copy.
+- Adjusted hero headline, profile education line, project summaries, and case study impact bullets to be more scan-friendly and decision-centric. Also replaced verbose placeholder phrasing with neutral placeholder text and added CTA descriptions for clarity.
+
+Commands & key outputs
+
+- Lint & build validation (local):
+
+```sh
+npm run -s lint  # no blocking errors
+npm run -s build # compiled successfully (Next.js build)
+```
+
+Build excerpt (local):
+
+```
+▲ Next.js 16.0.10 (Turbopack)
+Creating an optimized production build ...
+✓ Compiled successfully
+✓ Finished TypeScript
+✓ Generated static and SSG routes
+```
+
+Findings & changes (notable files)
+- `src/content/siteCopy.ts` — added `contact` keys (linkedinUrl, openToText, resumePrompt) and CTA descriptions; centralized hero copy and placeholders.
+- `src/data/profile.ts` — canonicalized headline, added education (MS + B.Des) and tightened bio; verified canonical LinkedIn & email.
+- `src/data/projects.ts` — tightened project summaries and solution text to be decision-oriented and recruiter-friendly.
+- `src/data/case-studies.ts` — reframed impact bullets to problem → approach → deliverable → decision → impact.
+- `src/data/how-i-work.ts` — refined principle language to emphasize reliability and actionability.
+- `src/app/about/page.tsx` — updated microcopy and recruiter CTA line.
+- `src/app/projects/page.tsx` — removed visible "calm" phrasing in the projects overview paragraph.
+- `src/components/hero-visual.tsx` — removed "Calm" from image alt text to avoid emotive language in screen-reader copy.
+- `CONTENT_INVENTORY.md` — updated mappings to reflect new centralized copy keys and CTAs.
+- `PORTFOLIO_WORKLOG.md` — appended this entry.
+
+Notes & next steps
+- During validation the production build failed with a TypeScript error referencing a missing `siteCopy.contact` object and missing `ctaStrip` `description` fields; I added these keys to `siteCopy.ts` and re-ran the build successfully.
+- Next recommended steps: quick manual UX smoke test (homepage, projects, selected project pages, case studies, about) focusing on header overlap, skip-link focus states, and copy tone in situ, then push a final commit if everything looks good.
+
+
 ---

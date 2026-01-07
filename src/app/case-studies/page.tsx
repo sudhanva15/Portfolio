@@ -4,7 +4,7 @@ import CaseStudyCard from "@/components/case-study-card";
 import { caseStudies } from "@/data/case-studies";
 
 export const metadata: Metadata = {
-  title: "Case Studies — Sudhanva Kashyap",
+  title: "Case Studies - Sudhanva Kashyap",
   description: "Structured problem solving and analytics-led case studies by Sudhanva Kashyap.",
 };
 
@@ -16,7 +16,7 @@ export default function CaseStudiesPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">Strategy & Analytics</p>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-50">Case Studies</h1>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-            Real-world decision stories from consulting and client work, presented NDA-safe with anonymized details. Each case focuses on the problem, the trade-offs, and what I learned—spanning pricing, retention, GTM, and ops.
+            Real-world decision stories from consulting and client work, presented NDA-safe with anonymized details. Each case focuses on the problem, the trade-offs, and what I learned, spanning pricing, retention, GTM, and ops.
           </p>
         </div>
       </section>

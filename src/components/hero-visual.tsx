@@ -7,7 +7,7 @@ import { siteCopy } from "@/content/siteCopy";
 
 const heroImage = {
   src: "/images/hero/mission-control.webp",
-  alt: "Calm mission control desk with ultrawide monitor showing clean charts, glowing orbits, and data nodes in a dark room",
+  alt: "Mission control desk with ultrawide monitor showing clean charts, glowing orbits, and data nodes in a dark room",
 };
 
 const stats = [

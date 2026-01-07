@@ -4,7 +4,7 @@ import ProjectCard from "@/components/project-card";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Projects — Sudhanva Kashyap",
+  title: "Projects - Sudhanva Kashyap",
   description: "Portfolio of analytics, product, and strategy builds led by Sudhanva Kashyap.",
 };
 
@@ -16,7 +16,7 @@ export default function ProjectsPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">Project Library</p>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-50">Projects</h1>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-            End-to-end builds where my MSBA and design background show up in shipped work. From ETF intelligence engines to self-healing scrapers to VR content ops, each project blends analytics rigor with calm, human-centered execution.
+            End-to-end builds where my MSBA and design background show up in shipped work. From ETF intelligence engines to self-healing scrapers to VR content ops, each project blends analytics rigor with practical, human-centered execution.
           </p>
         </div>
       </section>

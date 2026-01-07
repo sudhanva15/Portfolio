@@ -5,15 +5,15 @@ This document lists user-facing copy keys, current text, and where the text appe
 ---
 
 ## hero.introTemplate
-- Text: "I'm {name}. I grew up in Kenya, studied communication design in India, and now build calm, explainable analytics systems in the US."
+- Text: "I help teams turn complex signals into clear product and strategy decisions."
 - Appears in:
-  - `src/components/hero.tsx` (hard-coded before refactor)
-- Notes: Contains the only explicit mention of "Kenya". Per audit rules, Kenya should be mentioned only once across hero/about.
+  - `src/content/siteCopy.ts` (central source of truth)
+- Notes: Contains the only explicit mention of "Kenya" in older drafts; the current hero avoids repeating country mentions.
 
 ## hero.subhead
-- Text: "I help teams turn messy signals into confident product & strategy decisions."
+- Text: "I combine design and analytics to surface clear recommendations from complex data—prioritizing what to measure and how to act."
 - Appears in:
-  - `src/data/profile.ts` (as `profile.headline`) and `src/components/hero.tsx` (used as paragraph under the headline)
+  - `src/content/siteCopy.ts` (as `siteCopy.hero.subhead`) and `src/components/hero.tsx`
 - Notes: Centralized to `siteCopy.hero.subhead`.
 
 ## hero.badges
@@ -47,15 +47,15 @@ This document lists user-facing copy keys, current text, and where the text appe
 - Note: Single canonical mailto in header is correct; hero CTA previously duplicated this and has been removed.
 
 ## footer.builtLine
-- Text: "Built with intention in Rochester, NY."
+- Text: "Designed & built by Sudhanva Kashyap"
 - Appears in:
   - `src/components/layout/footer.tsx`
 
 ## footer.tagline
-- Text: "Somewhere between giraffes and dashboards."
+- Text: "Design + analytics for clear, decision-ready work"
 - Appears in:
   - `src/components/layout/footer.tsx`
-- Note: Keeps playful tone; does not repeat the word "Kenya".
+- Note: Keeps a concise, professional tone; avoids repeating place names.
 
 ## social.linkedinLabel / contact.linkedinLabel
 - Text: "View LinkedIn profile" / "LinkedIn"
@@ -66,9 +66,9 @@ This document lists user-facing copy keys, current text, and where the text appe
 
 ## ctaStrip items
 - Labels & descriptions:
-  - "Explore builds" — "Dashboards, scrapers, and behavioral tools that ship and get used." (`src/components/cta-strip.tsx`)
-  - "See decision stories" — "Case studies that follow the data from noise to recommendation." (`src/components/cta-strip.tsx`)
-  - "Learn how I work" — "A hybrid of design thinking, analytics, and systems-level curiosity." (`src/components/cta-strip.tsx`)
+  - "Explore projects" — "Technical builds showing product thinking, experiments, and shipped outcomes." (`src/content/siteCopy.ts`)
+  - "View case studies" — "Decision-focused writeups that highlight approach, tradeoffs, and impact." (`src/content/siteCopy.ts`)
+  - "Learn about me" — "My background, how I work, and projects that explain what I value." (`src/content/siteCopy.ts`)
 
 ## placeholders
 - Hero visual placeholder label:
@@ -90,14 +90,14 @@ This document lists user-facing copy keys, current text, and where the text appe
   - `src/components/certifications-strip.tsx`
 
 ## contact.openToText
-- Text: "I am open to full-time Product, Strategy, and Analytics roles (F1 OPT). Send a note and I'll respond within a day."
+- Text: "Open to Product, Strategy & Analytics roles (F1 OPT). Email for quick chats."
 - Appears in:
-  - `src/components/contact-card.tsx` (paragraph)
+  - `src/content/siteCopy.ts` (as `siteCopy.contact.openToText`)
 
 ## contact.resumePrompt
-- Text: "Request my latest resume using the Get in touch button in the header."
+- Text: "Resume and role details available on request — email to ask for a PDF."
 - Appears in:
-  - `src/components/contact-card.tsx`
+  - `src/content/siteCopy.ts` (as `siteCopy.contact.resumePrompt`)
 
 ## howIWork.summary & principles
 - Summary and principle titles/descriptions found in `src/data/how-i-work.ts` and now centralized to `siteCopy.howIWork`.

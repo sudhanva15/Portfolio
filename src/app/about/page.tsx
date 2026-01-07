@@ -100,7 +100,7 @@ export default function AboutPage() {
             I&apos;ve spent a lot of time thinking about how attention and cognitive load affect the way people use tools, especially in environments that demand constant context switching. That curiosity shaped projects like Neurodivulge, where I explored interfaces that support people who get easily overwhelmed by notifications and distractions. This mindset now guides how I build dashboards, write reports, and structure stakeholder updates.
           </p>
           <p>
-            I&apos;m curious about how tools shape behavior, how incentives shape systems, and how the right narrative can turn a spreadsheet into a decision. I like zooming out to map the system, then zooming in to fix the details. And I care deeply about building things that feel calm and trustworthy, not chaotic or magical.
+            I&apos;m curious about how tools shape behavior, how incentives shape systems, and how the right narrative can turn a spreadsheet into a decision. I like zooming out to map the system, then zooming in to fix the details. And I care deeply about building things that are dependable and trustworthy.
           </p>
         </div>
       </Section>
@@ -144,7 +144,7 @@ export default function AboutPage() {
       <Section title="Today" description="What I&apos;m focused on right now.">
         <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-transform transition-shadow duration-200 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-md dark:border-gray-800 dark:bg-gray-900 wire-surface-ticked">
           <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-            I&apos;m open to full-time Product, Strategy, and Analytics roles in the US (F1 OPT eligible). If the portfolio resonates, reach out for a calm conversation about how I can help your team turn messy signals into confident decisions.
+            I&apos;m open to full-time Product, Strategy, and Analytics roles in the US (F1 OPT eligible). If the portfolio resonates, reach out to discuss how I can help your team make clearer, faster product decisions.
           </p>
         </div>
       </Section>

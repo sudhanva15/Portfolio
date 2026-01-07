@@ -56,20 +56,19 @@ export const projects: Project[] = [
       {
         name: "Poorvik Prakashbabu",
         role: "Finance collaborator",
-        link: "https://www.linkedin.com/in/poorvik-prakashbabu/",
       },
     ],
     funFact:
-      "I hacked the first version together in a dorm room during midterms. Refactoring it into something that felt like an internal tool taught me the difference between \"cool project\" and \"trustworthy system.\"",
+      "I hacked the first version together in a dorm room during midterms. Refactoring it into something that felt like an internal tool taught me the difference between \"cool project\" and \"reliable tool.\"",
     problem:
-      "2025: 3000+ ETFs manage $8T in AUM, but retail investors still rely on Yahoo Finance screeners built in 2010. Institutional desks have Bloomberg terminals and quantitative teams. Solo investors, small advisors managing <$10M, and finance students? They're stuck with Excel and guesswork. When I joined my university's investment club, I realized most students treat portfolio construction like a black box. They hear \"diversification\" and \"risk profile\" but rarely see how those concepts translate into actual allocations or trade-offs. The ETF explosion, fee compression wars, and thematic investing boom created an opportunity: build an educational coach that makes optimization feel less like magic and more like a teaching conversation.",
-    solution: "I built Invest_AI as an educational ETF coach. It ingests data from multiple providers (with fallback logic), runs three optimizers in parallel (Hierarchical Risk Parity, Max Sharpe, Min Variance), and translates outputs into guided narratives. Users answer eight risk-profiling questions and see allocations mapped to their tolerance; the interface surfaces constraints and trade-offs and provides exportable summaries.",
+      "Students and small advisors lacked tools to translate portfolio concepts into concrete allocations and trade-offs. Portfolio construction often felt like a black box, and learners needed a hands-on, explainable experience to see how constraints and risk choices change outcomes.",
+    solution: "Invest_AI teaches portfolio construction. It ingests multiple data sources, runs parallel optimizers, and translates outputs into guided narratives tied to user constraints and risk answers so learners see trade-offs and export concrete allocations.",
     impact: [
-      "Built a validated ETF universe with multi-provider fallback and daily close data refresh (15-min delay on free tier) so the app behaves predictably even when APIs change or tickers go stale.",
-      "Implemented three optimizers side-by-side, making trade-offs between risk, return, and hierarchy visible to non-technical users through plain-language summaries.",
-      "Designed the interface as a teaching surface: added 20+ inline insights that translate portfolio math into recommendations, which lifted module completion by 34%.",
-      "Added 29 regression tests to catch stale data, optimizer drift, or broken constraint logic before I publish results to students.",
-      "Integrated Monte Carlo simulations so users see downside corridors and scenario bands instead of single-point Sharpe ratios.",
+      "Daily ETF snapshots with multi-provider fallbacks and cached refreshes to keep the app stable.",
+      "Three parallel optimizers to surface trade-offs between risk and return for non-technical users.",
+      "Inline teaching insights and guided explanations that help learners act on recommendations.",
+      "Regression tests and monitoring to detect stale data and optimizer drift before release.",
+      "Monte Carlo scenarios that show downside corridors rather than single-point metrics.",
     ],
     impactMetrics: [
       { label: "ETFs tracked", value: "67" },
@@ -81,15 +80,15 @@ export const projects: Project[] = [
       "I ingest daily ETF snapshots from Tiingo and Stooq, clean and cache them in Postgres to avoid rate limits, then run a Python risk engine that applies user constraints (sector limits, ESG filters, leverage caps). Three optimizers run in parallel, each producing allocations. Monte Carlo + regime-shift simulations layer on top to show downside scenarios. The Streamlit UI narrates trade-offs with charts and guardrails, and Supabase captures telemetry so I can see where users drop off or get confused. The system is designed to be reproducible and safe for demos, never to execute real trades.",
     heroImage: {
       src: "/images/projects/invest-ai/hero.webp",
-      alt: "Abstract constellation map showing ETF clusters as glowing nodes converging into a central portfolio signal",
-      caption: "Conceptual map of ETFs converging into one portfolio signal — visualizing allocations and trade-offs for instructors and students.",
+      alt: "Abstract constellation map showing ETF clusters as glowing nodes converging into a portfolio allocation map",
+      caption: "Conceptual map of ETFs converging into an allocation map, visualizing allocations and trade-offs for instructors and students.",
     },
     gallery: [
       { src: "/images/projects/invest-ai/dashboard.webp", alt: "Invest_AI dashboard showing three optimizers side-by-side with allocation breakdowns", caption: "Three optimization engines run in parallel, making trade-offs visible to non-technical users." },
       { src: "/images/projects/invest-ai/risk-profile.webp", alt: "Invest_AI risk profiling interface with eight guided questions", caption: "Eight risk-profiling questions map user tolerance to concrete allocations." },
       { src: "/images/projects/invest-ai/portfolio.webp", alt: "Invest_AI portfolio view with Monte Carlo simulation corridors", caption: "Monte Carlo simulations show downside corridors instead of single-point Sharpe ratios." },
     ],
-    diagramLabel: "Invest_AI system sketch",
+    diagramLabel: "Invest_AI architecture sketch",
     techStack: ["Python", "Pandas", "NumPy", "Postgres", "Streamlit", "Supabase", "FRED"],
     links: [
       { type: "demo", url: "https://investaiportfoliorec.streamlit.app/", label: "Live demo" },
@@ -105,21 +104,21 @@ export const projects: Project[] = [
   {
     slug: "unified-scraper",
     title: "Unified Scraper - My Intelligence Layer for the Web",
-    subtitle: "Self-healing scraping system that converts varied web pages into reliable, structured datasets for analytics and product research.",
-    summary: "A self-healing scraping system that reduces maintenance, surfaces drift, and produces schema-aligned outputs for analysis.",
+    subtitle: "Self-healing scraper for reliable, schema-aligned datasets.",
+    summary: "A scraper that reduces maintenance, detects drift, and yields schema-aligned outputs for downstream analysis.",
     role: "Builder · Data Engineering · Product Systems",
     timeframe: "Jul 2025 – Present",
     location: "Personal / Open-source-ready",
     tags: ["Data Engineering", "Automation", "Product Systems", "Analytics"],
     funFact: "I rigged drift alerts to play a synth siren in Slack so I could literally hear when extractors broke. Surprisingly effective.",
     problem:
-      "Most of my analytics and product research depends on information that isn’t available through clean APIs: product pages, pricing deltas, competitor changes, job openings, scattered documentation. Every time I needed data, I repeated the same cycle, write a one-off script, fight selectors, sprinkle in random waits, handle CAPTCHAs, patch retries, and hope it didn’t break overnight. The bottleneck wasn’t analysis; it was access.",
+      "Many useful signals live on web pages without stable APIs. I kept building one-off scrapers that broke under drift, costing time and creating fragile datasets. The bottleneck was reliable access and consistent schema.",
     solution: "I built a unified scraping engine that handles Playwright rendering, stealth patterns, dynamic waits, and retry logic, then pushes runs through a stability layer with structured logging, cost tracking, and data lineage. An experience layer provides preview mode, schema mapping, and export flows so scrapes are reusable across projects instead of one-offs.",
     impact: [
-      "Cut end-to-end data-gathering time by ~60% across my analytics projects.",
-      "Achieved 99.2% pipeline reliability over 12K+ requests across 6 weeks.",
-      "Made schema-aligned extraction ~2.7× faster for tabular and semi-structured pages.",
-      "Reduced manual babysitting of long scrapes by ~80% using smarter retry and drift detection.",
+      "Reduced end-to-end data-gathering time and maintenance overhead across analytics projects.",
+      "High pipeline reliability with monitoring and drift detection over thousands of requests.",
+      "Faster, schema-aligned extraction for tabular and semi-structured pages.",
+      "Reduced manual babysitting with smarter retries and automated drift alerts.",
     ],
     impactMetrics: [
       { label: "Requests handled", value: "12K+" },
@@ -151,7 +150,7 @@ export const projects: Project[] = [
         caption: "The retry engine that keeps long scrapes stable without human babysitting."
       }
     ],
-    diagramLabel: "Unified Scraper signal map",
+    diagramLabel: "Unified Scraper architecture map",
     techStack: ["TypeScript", "Playwright", "Python", "Airflow", "dbt", "BigQuery"],
     links: [
       { type: "github", url: "https://github.com/sudhanva/unified-scraper", label: "Source" }
@@ -172,14 +171,14 @@ export const projects: Project[] = [
     tags: ["Research", "Strategy", "Healthcare", "Product"],
     funFact: "I sketched the first archetype storyboards inside a VR whiteboard to stay immersed in the medium. It felt right for a project about neurodivergent thinking.",
     problem:
-      "A healthcare research partner had spent months conducting 180 interviews about neurodiversity, attention patterns, and executive function. The result was a 300-page PDF that no executive would ever read. They needed archetypes, pricing logic, and interactive stories they could license globally, but the insights were trapped in dense transcripts. I've always been fascinated by how attention and cognitive load shape the way people use tools, especially in environments that demand constant context switching. I wanted to build something that reduced guilt and friction instead of just adding prettier lists.",
-    solution: "I led synthesis sprints to cluster 180 interviews into seven behavioral archetypes using topic modeling and manual tagging. Each archetype maps to measurable outcomes, content needs, and design implications. I added TAM inputs and a pricing model, then built a React portal where stakeholders can explore narratives, metrics, and recommendations. The UI focuses on comprehension: guided walkthroughs, concise microcopy, and attention-aware UX patterns so insights are actionable rather than buried in a report.",
+      "A partner had 180 interviews trapped in dense transcripts and needed usable archetypes and a way to evaluate licensing opportunities. Leaders needed clear, testable recommendations rather than a long report.",
+    solution: "Led synthesis sprints to produce seven behavioral archetypes, each tied to measurable outcomes. Built a React portal with guided walkthroughs, concise microcopy, and a pricing calculator so stakeholders could explore narratives and business implications.",
     impact: [
-      "Synthesized 180 interviews across 12 semi-structured sessions using Python topic modeling and manual behavioral tagging in Airtable, producing seven archetypes tied to measurable outcomes, content needs, and design implications.",
-      "Built a pricing and licensing calculator that helped the client recoup study costs within three enterprise deals.",
-      "Added guided walkthroughs with motion microcopy and attention-informed design patterns (optimized for people who get easily overwhelmed by notifications and context switching), lifting comprehension scores by 30% during pilot testing.",
-      "Shipped opportunity sizing inputs so partners could plug in their reach numbers and instantly see revenue and impact ranges tailored to their market.",
-      "Designed the portal as a teaching tool: every archetype includes narrative context, visual summaries, and actionable next steps, no dense PDFs required.",
+      "Clustered 180 interviews into seven actionable archetypes with measurable outcomes.",
+      "Built a pricing and licensing calculator that supported initial partner deals.",
+      "Guided walkthroughs and attention-aware patterns improved comprehension during pilot testing.",
+      "Opportunity sizing that let partners estimate revenue ranges tailored to their reach.",
+      "Portal designed to surface next steps and make insights reusable instead of buried in PDFs.",
     ],
     impactMetrics: [
       { label: "Interviews synthesized", value: "180" },
@@ -188,7 +187,7 @@ export const projects: Project[] = [
       { label: "Comprehension lift", value: "+30%" },
     ],
     architecture:
-      "Python topic modeling + Airtable tagging pipeline feeds a Notion knowledge base. JSON exports drive a React/TypeScript portal with Plotly visualizations. Vercel hosts the static build with enterprise SSO support. The system is designed to be modular: new interviews can be tagged and folded into existing archetypes without rebuilding the entire model.",
+      "Python topic modeling + Airtable tagging pipeline feeds a Notion knowledge base. JSON exports drive a React/TypeScript portal with Plotly visualizations. Vercel hosts the static build with enterprise SSO support. The pipeline is modular: new interviews can be tagged and folded into existing archetypes without rebuilding the model.",
     roadmap: [
       "Ship the 'Water Drain' feature that lets users release low-stakes tasks and log why they were blocked, so we can spot patterns.",
       "Turn archetype stories into adaptive rituals that suggest one or two next actions instead of overwhelming to-do lists.",
@@ -198,7 +197,7 @@ export const projects: Project[] = [
     heroImage: {
       src: "/images/projects/neurodivulge/hero.webp",
       alt: "Abstract illustration of a human silhouette with UI cards orbiting around it, some smooth and aligned, others jittered to represent cognitive friction",
-      caption: "Visualizing attention and cognitive load—practical design patterns that reduce friction and support comprehension.",
+      caption: "Visualizing attention and cognitive load, practical design patterns that reduce friction and support comprehension.",
     },
     gallery: [
       { src: "/images/projects/neurodivulge/archetypes.webp", alt: "Neurodivulge archetypes portal showing seven behavioral clusters with narrative context", caption: "Seven archetypes mapped from 180 interviews, each tied to measurable outcomes and design implications." },
@@ -214,21 +213,20 @@ export const projects: Project[] = [
   {
     slug: "renderpub-vr",
     title: "Renderpub VR Design Ops",
-    subtitle: "Hybrid creative + product + ops system for VR content pipelines",
+    subtitle: "Hybrid creative + product + ops pipeline for VR content",
     role: "Product & Ops Lead",
     timeframe: "Sep 2021–Jan 2024",
     tags: ["Product", "Operations", "VR", "Analytics", "Creative"],
     funFact: "I ran playtest retros from a racing-sim cockpit to mimic the headset's field-of-view constraints. It forced me to think like a user trapped in a narrow visual cone.",
     problem:
-      "At Renderpub, we were shipping weekly VR experiences for brand activations and immersive storytelling. But every playtest felt like chaos: briefs lived in Slack threads, assets broke in handoffs, telemetry lived in scattered spreadsheets, and learnings evaporated after each retro. Scenes would fail in headset reviews, and no one could trace why. PMs, artists, and engineers were working in parallel universes.",
-    solution: "I built a design-ops system that created a single operating picture: standardized briefs in Notion, automated asset QA with Python lint scripts, Unity telemetry that logs user interactions to BigQuery, and FigJam retro templates that made insights searchable. The result was a repeatable pipeline where creative, product, and engineering could iterate faster with fewer regressions.",
+      "Playtests exposed frequent handoff failures: missing assets, unclear briefs, and scattered telemetry meant issues resurfaced across sprints.",
+    solution: "Built a design-ops pipeline with standardized briefs, automated asset QA, telemetry-backed dashboards, and retro templates so teams could iterate faster and reduce regressions.",
     impact: [
-      "Instrumented Unity telemetry that exposed a 32% drop-off at scene seven. We redesigned that scene and lifted completion by 21%.",
-      "Automated asset QA and packaging with Python scripts, saving the art team 18 hours per week in manual handoffs and reducing broken builds by 40%.",
-      "Introduced prioritization scorecards that aligned PM and creative leads on experiment bets every sprint, reducing thrash and rework.",
-      "Stored every playtest insight in Airtable with FigJam retro templates, making learnings searchable and reusable instead of trapped in Slack.",
-      "Built exposure to Unreal, Unity, diverse 3D modeling and archviz tools, VFX workflows, and cross-functional rituals at startup scale, working on Renderpub's proprietary VR platform, a SaaS-like suite for immersive storytelling.",
-      "The hybrid creative + product + ops nature of the role taught me how to translate between designers, engineers, and stakeholders, a foundation for product analytics and strategy work later.",
+      "Instrumented telemetry to spot a drop-off and iterated the scene to improve completion.",
+      "Automated asset QA and packaging, saving hours in manual handoffs and reducing broken builds.",
+      "Introduced prioritization scorecards that aligned PM and creative leads and reduced rework.",
+      "Captured playtest insights in Airtable so learnings were searchable and reusable.",
+      "The role bridged design, engineering, and product, strengthening my cross-functional translation skills.",
     ],
     impactMetrics: [
       { label: "Scenes tested", value: "40+" },

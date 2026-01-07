@@ -25,13 +25,13 @@ export const caseStudies: CaseStudy[] = [
     title: "Confidential B2B SaaS – HR & Enablement",
     context: "SVC Consulting · Series B SaaS Client · Feb–May 2025 · Competitive 3-month pro bono project",
     summary:
-      "I was competitively selected into SVC Consulting's strategy team to help a B2B SaaS client in the HR and talent space figure out whether a new physical-to-digital product could drive better engagement in campus hiring and early-career networking. The client had strong product-market intuition but needed structure around pilot design, buyer journeys, and where to focus limited resources before scaling GTM.",
+      "Helped a B2B talent client design a focused pilot to test adoption and renewal among campus and partner buyers.",
     impact: [
-      "Problem: The client had product-market fit signals but no structured view of who would adopt the product or why they would renew. Pitching to universities without a clear ICP risked wasted sales effort.",
-      "Approach: I mapped five buyer segments across students, campus services, and corporate partners, then used a hands-on pilot to observe in-context behavior. Methods included 8 user interviews, journey mapping in Figma, and adoption scenarios in spreadsheets.",
-      "Deliverable: A three-phase pilot framework with usage metrics tied to each ICP and a partner-ready narrative that made adoption decisions testable.",
-      "Decision: Recommend a phased launch (students first, universities second) to prove engagement before scaling sales efforts; leadership adopted the phased approach to reduce upfront complexity.",
-      "Why it mattered: The pilot clarified the ICP, reduced rollout risk, and gave the leadership a concrete narrative for partners and investors.",
+      "Problem: No clear ICP or testable plan for campus adoption, risking wasted sales effort.",
+      "Approach: Mapped buyer segments and ran a hands-on pilot with interviews and journey mapping to observe in-context behavior.",
+      "Deliverable: A three-phase pilot with metrics aligned to each ICP and a partner-ready narrative for sales.",
+      "Decision: Recommended a phased launch (students first) to prove engagement before scaling; leadership adopted the approach.",
+      "Why it mattered: Clarified ICP, reduced rollout risk, and created a testable adoption plan for partners.",
     ],
     tags: ["Strategy", "B2B", "GTM", "Pilot design", "ICP mapping"],
     heroImage: {
@@ -51,14 +51,13 @@ export const caseStudies: CaseStudy[] = [
     title: "Confidential Video SaaS · Retention & Pricing",
     context: "Subscription video platform · Retention + Monetization",
     summary:
-      "A subscription video platform was losing trial users in week two and discounting without a system. I partnered with product, lifecycle marketing, and finance to diagnose churn and craft a pricing playbook that balanced retention with ARPU. The engagement produced a defensible KPI tree, experimentation roadmap, and launch plan for new bundles.",
+      "Partnered with product and finance to stop week-two trial churn and introduce a pricing approach that balanced retention with revenue.",
     impact: [
-      "Problem: The platform was losing trial users in week two and discounting without a pricing framework, eroding ARPU without clear impact on retention.",
-      "Methods: Combined cohort analysis in SQL, content engagement tracking, and behavioral clustering to build a retention segmentation that explained 83% of churn variance.",
-      "What I built: Designed a pricing sandbox in spreadsheets with guardrails for discount depth, offer frequency, and margin contribution. Ran two price/feature experiments (A/B tests coordinated with lifecycle marketing) that lifted paid conversion by 11% while holding churn statistically flat.",
-      "Decision & Trade-offs: We considered three pricing models: flat subscription, usage-based, and hybrid bundles. I recommended hybrid bundles because they balanced predictable revenue with upsell flexibility. Leadership agreed but wanted faster iteration cycles. We codified a weekly signal review + monthly pricing council so decisions stopped living in Slack threads.",
-      "Why it mattered: The segmentation gave product and marketing a shared language for targeting. The pricing playbook reduced ad-hoc discounting and made trade-offs explicit. The operating cadence ensured experiments shipped on time.",
-      "What I learned: Pricing work lives at the intersection of finance, product, and marketing. Next time, I'd involve finance earlier in experiment design to pre-align on margin thresholds and avoid last-minute pivots.",
+      "Problem: Trials dropped off in week two and ad-hoc discounting reduced ARPU.",
+      "Approach: Cohort analysis, engagement tracking, and behavioral segmentation informed a retained-focused experimentation plan.",
+      "What I built: A pricing sandbox and two coordinated experiments that improved paid conversion while keeping churn contained.",
+      "Decision: Recommended hybrid bundles and a weekly review cadence to make pricing decisions systematic.",
+      "Why it mattered: Gave teams a shared targeting language, reduced ad-hoc discounts, and established a repeatable experiment process.",
     ],
     tags: ["Strategy", "Pricing", "Analytics"],
     heroImage: {

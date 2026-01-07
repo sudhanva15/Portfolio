@@ -15,8 +15,8 @@ export type Profile = {
 
 export const profile: Profile = {
   name: "Sudhanva Kashyap",
-  headline: "I help teams turn complex signals into clear product and strategy decisions.",
-  education: "MS Business Analytics (STEM), Simon Business School; B.Des Communication Design (PES University)",
+  headline: "I help teams turn complex data into clear product and strategy decisions.",
+  education: "MS in Business Analytics (STEM), Simon Business School, University of Rochester; B.Des in Communication Design, PES University",
   focusAreas: ["Product", "Strategy", "Analytics"],
   bio:
     "I pair quantitative rigor with systems-level design to surface actionable insights. My work spans ETF intelligence, research ops, and GTM analytics; I prioritize clear recommendations and measurable outcomes.",

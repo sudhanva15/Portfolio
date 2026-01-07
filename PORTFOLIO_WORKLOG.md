@@ -392,4 +392,30 @@ Notes & next steps
 - Next recommended steps: quick manual UX smoke test (homepage, projects, selected project pages, case studies, about) focusing on header overlap, skip-link focus states, and copy tone in situ, then push a final commit if everything looks good.
 
 
----
+## 2026-01-06 — Content audit (recruiter-first)
+
+Summary
+- Ran targeted searches for banned phrases, country mentions, contact links, and education tokens to inform a focused rewrite pass.
+
+Commands run
+
+```sh
+# phrase audit
+grep -RInE "Most |People do not|credibility comes|calm|legible|receipts-first|built like a product|signal|system" src || true
+
+# country mentions
+grep -RInE "Kenya|India|US" src || true
+
+# mailto check
+grep -RIn "mailto:" src || true
+
+# linkedin check
+grep -RIn "linkedin" src || true
+
+# education tokens
+grep -RInE "PES|Communication Design|MS|MSBA|University of Rochester|Simon" src || true
+```
+
+Findings
+- Banned phrasing found in: `src/app/about/page.tsx`, `src/data/projects.ts`, `src/data/case-studies.ts`, `src/content/siteCopy.ts`, and supporting components (instances of `signal`, `system`, repeated em dashes, and a few templated openers). These are prioritized for minimal edits.
+- Country mentions: explicit country names appeared in the solar-system component and the `About` 

@@ -362,6 +362,31 @@ Next steps
 
 - If you'd like, I can run a short visual smoke test and report any small spacing/focus findings; otherwise this change is ready to be committed and pushed as a follow-up entry.
 
+
+## 2026-01-07 — Theme background flash fix + scroll restore + image placement guide
+
+Summary
+- Removed the client-only background wrapper and tied the background directly to `html.dark` so the correct theme renders before hydration (no white flash on reload).
+- Restored scrolling by removing `overflow: hidden` from the body-level theme backgrounds while keeping the effect on the optional wrapper class.
+- Added an image placement document covering exact paths, aspect ratios, and content guidance for every referenced asset.
+
+Commands & key outputs
+
+```sh
+npm run build
+git add src/app/layout.tsx src/app/globals.css
+git commit -m "Fix theme background flash on reload"
+git push
+```
+
+Notes
+- The build/commit/push above were for the background flash fix (commit `e882921`). The scroll fix and image guide are new edits in this session and are not yet built or pushed.
+
+Findings & changes (notable files)
+- `src/app/layout.tsx` — removed the client background wrapper and inline fallback so the pre-hydration theme class owns the first paint.
+- `src/app/globals.css` — applied light/dark backgrounds directly to the body and removed body-level `overflow: hidden` that blocked scrolling.
+- `IMAGE_PLACEMENT_GUIDE.md` — new guide for image placement and content requirements per asset.
+
 ## 2026-01-07 — Content rewrite for recruitability (hero/profile/projects/case studies)
 
 Summary

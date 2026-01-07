@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useTheme } from "next-themes";
+import { siteCopy } from "@/content/siteCopy";
 
 const cn = (...classes: Array<string | false | undefined | null>) => classes.filter(Boolean).join(" ");
 
@@ -14,7 +15,8 @@ interface LocationNode {
   y: number;
 }
 
-const locations: LocationNode[] = [
+// Locations are user-facing and centralized in siteCopy
+const locations: LocationNode[] = (siteCopy?.solarSystem?.locations as unknown as LocationNode[]) || [
   {
     id: "east-africa",
     label: "East Africa",
@@ -24,18 +26,18 @@ const locations: LocationNode[] = [
     y: 20,
   },
   {
-    id: "india",
-    label: "India",
+    id: "design-school",
+    label: "Design school",
     years: "2018–2023",
-    description: "Design school, VR experiments, data analytics discovery, product roles.",
+    description: "Design studies, VR experiments, early product roles.",
     x: 25,
     y: 60,
   },
   {
-    id: "usa",
-    label: "USA",
+    id: "analytics-classroom",
+    label: "Analytics classroom",
     years: "2023–Present",
-    description: "MS Business Analytics, building tools for better product decisions.",
+    description: "MS Business Analytics, building tools for product decisions.",
     x: 75,
     y: 60,
   },
@@ -49,10 +51,8 @@ export default function SolarSystem() {
     <section className="relative py-20 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-50">Where I&apos;ve Orbited</h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-            From East Africa&apos;s wildlife to India&apos;s design studios to US analytics classrooms. Each place shaped how I solve problems.
-          </p>
+          <h2 className="mb-4 text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-50">{siteCopy.solarSystem.title}</h2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400">{siteCopy.solarSystem.intro}</p>
         </div>
         <div className="relative mx-auto h-[400px] max-w-4xl sm:h-[500px]">
           <svg className="pointer-events-none absolute inset-0 h-full w-full dark:hidden" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

@@ -31,7 +31,17 @@ export const siteCopy = {
   },
   placeholders: {
     heroVisual: "Hero visual placeholder",
+    heroVisualAlt: "Mission control desk with ultrawide monitor showing clean charts, glowing orbits, and data nodes in a dark room",
     screenshot: "Screenshot placeholder",
+  },
+  solarSystem: {
+    title: "Where I've Orbited",
+    intro: "From wildlife to design school to analytics classrooms, each place shaped how I solve problems.",
+    locations: [
+      { id: "east-africa", label: "East Africa", years: "2000–2018", description: "Where curiosity was born: wildlife, bikes, and backyard experiments." },
+      { id: "design-school", label: "Design school", years: "2018–2023", description: "Design studies, VR experiments, early product roles." },
+      { id: "analytics-classroom", label: "Analytics classroom", years: "2023–Present", description: "MS Business Analytics, building tools for product decisions." },
+    ],
   },
   sections: {
     certificationsHeading: "Education & certificates",

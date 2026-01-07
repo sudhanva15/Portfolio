@@ -1,5 +1,17 @@
 # PORTFOLIO WORKLOG
 
+## SHIP GATE RESULT — 2026-01-06
+- latest commit: `58a7320`
+- HEAD == origin/main: **yes**
+- missing assets count: **0** (all referenced images present under `/public/images`)
+- lint/build: **pass** (ESLint clean; Next.js production build succeeded)
+- follow-ups (optional):
+  - Run a brief UX smoke test (visual + keyboard) across key pages
+  - Add TypeScript types for `siteCopy` for stronger safety
+  - Consider small A/B hero headline tests for BA vs Strategy/Analytics
+
+---
+
 This file records ongoing audits, commands and evidence.
 
 

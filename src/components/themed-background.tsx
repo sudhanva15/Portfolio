@@ -7,7 +7,8 @@ const cn = (...classes: Array<string | false | undefined | null>) => classes.fil
 export default function ThemedBackground({ children }: { children: React.ReactNode }) {
   // Use resolvedTheme to avoid first-paint/hydration mismatch
   const { resolvedTheme } = useTheme();
-  const current = resolvedTheme || "dark";
+  // Avoid forcing dark on first paint — prefer the light background until the theme is resolved
+  const current = resolvedTheme || "light";
   const bgClass = current === "dark" ? "theme-space text-slate-100" : "theme-wireframe text-slate-900";
   return <div className={cn(bgClass)}>{children}</div>;
 }

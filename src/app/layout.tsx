@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from 'next/script';
 import { ThemeProvider } from "next-themes";
 import SiteLayout from "@/components/layout/site-layout";
 import ThemedBackground from "@/components/themed-background";
@@ -27,12 +28,14 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* Ensure the page defaults to dark on first paint unless a user preference is stored */}
-        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var ls=localStorage.getItem('theme'); if(ls) return; document.documentElement.classList.add('dark');}catch(e){document.documentElement.classList.add('dark');}})();` }} />
-        {/* Quick inline dark fallback styles to avoid an interim light background flash */}
-        <style dangerouslySetInnerHTML={{ __html: `html, body { background-color: #020617; color: #f8fafc; }` }} />
-      </head>
+      {/* Use Next Script with beforeInteractive so this runs before hydration and first paint */}
+      <Script
+        id="theme-init"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `(function(){try{var t=localStorage.getItem('theme'); if(t==='light') return; /* default dark */ document.documentElement.classList.add('dark');}catch(e){document.documentElement.classList.add('dark');}})();`,
+        }}
+      />
       <body suppressHydrationWarning className={cn(inter.variable, "min-h-screen font-sans antialiased")}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <ThemedBackground>

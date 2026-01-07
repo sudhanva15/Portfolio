@@ -26,8 +26,8 @@ export default function RootLayout({
   const cn = (...classes: Array<string | false | undefined | null>) => classes.filter(Boolean).join(" ");
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning className={cn(inter.variable, "min-h-screen font-sans antialiased")}> 
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body suppressHydrationWarning className={cn(inter.variable, "min-h-screen font-sans antialiased")}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <ThemedBackground>
             <SiteLayout>{children}</SiteLayout>

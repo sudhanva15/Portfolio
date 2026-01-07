@@ -92,7 +92,8 @@
 /* --- THEME BACKGROUNDS ------------------------------------ */
 
 /* Dark mode: deep space with stars + vignette */
-.theme-space {
+.theme-space,
+html.dark body {
   position: relative;
   min-height: 100vh;
   background:
@@ -103,7 +104,8 @@
 }
 
 /* starfield layer */
-.theme-space::before {
+.theme-space::before,
+html.dark body::before {
   content: "";
   position: fixed;
   inset: -80px;
@@ -120,7 +122,8 @@
 }
 
 /* vignette for depth */
-.theme-space::after {
+.theme-space::after,
+html.dark body::after {
   content: "";
   position: fixed;
   inset: -20px;
@@ -131,7 +134,8 @@
 }
 
 /* Light mode: grid / newsletter wireframe */
-.theme-wireframe {
+.theme-wireframe,
+html:not(.dark) body {
   position: relative;
   min-height: 100vh;
   background:
@@ -141,7 +145,8 @@
   overflow: hidden;
 }
 
-.theme-wireframe::before {
+.theme-wireframe::before,
+html:not(.dark) body::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -157,7 +162,8 @@
 }
 
 /* subtle paper edge vignette */
-.theme-wireframe::after {
+.theme-wireframe::after,
+html:not(.dark) body::after {
   content: "";
   position: fixed;
   inset: -10px;
@@ -178,7 +184,8 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .theme-wireframe .wire-surface:hover {
+  .theme-wireframe .wire-surface:hover,
+  html:not(.dark) body .wire-surface:hover {
     transform: translateY(-1px);
   }
 }

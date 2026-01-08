@@ -40,17 +40,22 @@ Invest_AI
 
 Unified Scraper
 - `public/images/projects/unified-scraper/hero.webp`
-  - Content: Central data hub with multiple pipelines feeding it.
+  - Content: Unified Scraper web interface showing workflow navigation.
   - Aspect: 16:9.
 - `public/images/projects/unified-scraper/drift-detection.webp`
-  - Content: Two wireframe layouts highlighting selector drift/misalignment.
+  - Content: Autodiscovery configuration view with deep crawl options.
   - Aspect: 16:9 or square-safe crop.
 - `public/images/projects/unified-scraper/data-lineage.webp`
-  - Content: Node graph showing lineage across source → extractor → cleaner → export.
+  - Content: Results distribution/coverage view to validate extraction quality.
   - Aspect: 16:9 or square-safe crop.
 - `public/images/projects/unified-scraper/retry-engine.webp`
-  - Content: Loop/decision diagram for retry paths.
+  - Content: Pipeline progress view for long-running scrape jobs.
   - Aspect: 16:9 or square-safe crop.
+- Optional expanded gallery (revealed via + tile):
+  - `public/images/projects/unified-scraper/amazon-results.webp` — raw Amazon results before filters.
+  - `public/images/projects/unified-scraper/web-result.webp` — structured web result table.
+  - `public/images/projects/unified-scraper/reddit-results.webp` — Reddit results table.
+  - `public/images/projects/unified-scraper/reddit-export.webp` — Reddit export-ready results view.
 
 Neurodivulge
 - `public/images/projects/neurodivulge/hero.webp`

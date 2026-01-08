@@ -142,24 +142,46 @@ export const projects: Project[] = [
       "Under the hood, Unified Scraper is three concentric layers: acquisition, stability, and experience. Acquisition layer: Playwright-based browser engine with anti-bot heuristics, structured waits, and targeted selectors. Stability layer: centralized retry logic keyed on error type (timeouts, drift, partial loads), plus detailed logs for each run. Experience layer: preview mode for inspecting extracted content, schema mapping helpers, and export pipelines for CSV/JSON/DB sinks.",
     heroImage: {
       src: "/images/projects/unified-scraper/hero.webp",
-      alt: "A glowing data hub in space with multiple pipelines feeding one central core.",
-      caption: "The core idea: many chaotic inputs, one trustworthy output."
+      alt: "Unified Scraper web interface showing the main workflow and navigation",
+      caption: "Main interface showing the scraper workflow and operational overview."
     },
     gallery: [
       {
+        src: "/images/projects/unified-scraper/retry-engine.webp",
+        alt: "Job progress view for an Amazon scrape run showing pipeline stages",
+        caption: "Pipeline progress tracking for long-running marketplace scrape jobs."
+      },
+      {
         src: "/images/projects/unified-scraper/drift-detection.webp",
-        alt: "Two shifting wireframe layouts showing selector drift with a highlighted misalignment.",
-        caption: "How the system spots when a site quietly changes under a long-running scraper."
+        alt: "Reddit autodiscovery configuration view with deep crawl options",
+        caption: "Autodiscovery mode that expands target coverage while preserving structure."
       },
       {
         src: "/images/projects/unified-scraper/data-lineage.webp",
-        alt: "A branching node graph showing data lineage across source, extractor, cleaner, and export.",
-        caption: "Every scrape produces a full, traceable lineage path."
+        alt: "Distribution view showing results quality and coverage across collected items",
+        caption: "Coverage and quality distribution to validate extraction performance."
+      }
+    ],
+    galleryHidden: [
+      {
+        src: "/images/projects/unified-scraper/amazon-results.webp",
+        alt: "Amazon results view before filters are applied with raw extraction output",
+        caption: "Raw Amazon extraction results captured before filters and cleanup."
       },
       {
-        src: "/images/projects/unified-scraper/retry-engine.webp",
-        alt: "A circular control diagram illustrating different automated retry paths.",
-        caption: "The retry engine that keeps long scrapes stable without human babysitting."
+        src: "/images/projects/unified-scraper/web-result.webp",
+        alt: "Web scrape output table showing extracted records and metadata",
+        caption: "Unified web results table with structured fields ready for export."
+      },
+      {
+        src: "/images/projects/unified-scraper/reddit-results.webp",
+        alt: "Reddit results table listing extracted posts and attributes",
+        caption: "Reddit extraction results with metadata fields aligned to schema."
+      },
+      {
+        src: "/images/projects/unified-scraper/reddit-export.webp",
+        alt: "Reddit results view with export controls enabled",
+        caption: "Export-ready output view for downstream analysis pipelines."
       }
     ],
     diagramLabel: "Unified Scraper architecture map",

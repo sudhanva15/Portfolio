@@ -22,7 +22,7 @@ export const profile: Profile = {
     "I pair quantitative rigor with systems-level design to surface actionable insights. My work spans ETF intelligence, research ops, and GTM analytics; I prioritize clear recommendations and measurable outcomes.",
   email: "skashya5@simon.rochester.edu",
   linkedin: "https://www.linkedin.com/in/sudhanvavkashyap/",
-  avatar: "/sudhanva-avatar.svg",
+  avatar: "/sudhanva-avatar.webp",
   certifications: [
     { name: "Advanced Certificate of Achievement in Pricing", org: "Simon Business School" },
     { name: "SCALA Programming", org: "Ongoing" },

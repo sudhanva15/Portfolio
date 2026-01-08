@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import PlaceholderFrame from "@/components/placeholder-frame";
 import ScrollFadeIn from "@/components/scroll-fade-in";
 import FunFactBadge from "@/components/fun-fact-badge";
+import CollaboratorCard from "@/components/collaborator-card";
 import { caseStudies } from "@/data/case-studies";
 import { funFacts } from "@/data/fun-facts";
 import { siteCopy } from "@/content/siteCopy";
@@ -83,6 +84,26 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
             </Link>
           )}
           <div className="h-[1px] w-full mb-8 bg-gradient-to-r from-sky-400/90 via-purple-400/90 to-emerald-300/70 dark:opacity-100 opacity-80" />
+          {study.collaborators && study.collaborators.length > 0 && (
+            <section className="mt-6 mb-8">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">
+                Collaborators
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                {study.collaborators.map((collab) => (
+                  <CollaboratorCard
+                    key={collab.name}
+                    name={collab.name}
+                    program={collab.program}
+                    additionalInfo={collab.additionalInfo}
+                    linkedinUrl={collab.linkedinUrl}
+                    imageSrc={collab.imageSrc}
+                    photoCredit={collab.photoCredit}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
         </div>
 
         <AssetHero

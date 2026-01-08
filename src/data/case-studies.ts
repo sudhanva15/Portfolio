@@ -17,6 +17,16 @@ export type CaseStudy = {
     alt: string;
     caption?: string;
   };
+  collaborators?: CaseStudyCollaborator[];
+};
+
+export type CaseStudyCollaborator = {
+  name: string;
+  program: string;
+  additionalInfo?: string;
+  linkedinUrl: string;
+  imageSrc: string;
+  photoCredit: string;
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -100,5 +110,15 @@ export const caseStudies: CaseStudy[] = [
       caption: "ANOVA and regression models isolating variance drivers across speed settings and equipment calibration.",
     },
     link: "https://www.notion.so/confidential-retail-pricing",
+    collaborators: [
+      {
+        name: "Pooja Tapas",
+        program: "MS Business Analytics (MSBA) 2025",
+        additionalInfo: "BTech Computer Science",
+        linkedinUrl: "https://www.linkedin.com/in/poojatapas/",
+        imageSrc: "/pooja-tapas.webp",
+        photoCredit: "Photo provided by Pooja Tapas",
+      },
+    ],
   },
 ];

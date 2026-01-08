@@ -47,6 +47,12 @@ export type Collaborator = {
   name: string;
   role?: string;
   link?: string;
+  // Extended collaborator card fields
+  program?: string;
+  additionalInfo?: string;
+  linkedinUrl?: string;
+  imageSrc?: string;
+  photoCredit?: string;
 };
 
 export const projects: Project[] = [
@@ -60,7 +66,10 @@ export const projects: Project[] = [
     collaborators: [
       {
         name: "Poorvik Prakashbabu",
-        role: "Finance collaborator",
+        program: "MS Finance 2025",
+        linkedinUrl: "https://www.linkedin.com/in/poorvik-mandya-prakashbabu-7b957521b/",
+        imageSrc: "/poorvik-prakashbabu.webp",
+        photoCredit: "Photo provided by Poorvik Prakashbabu",
       },
     ],
     funFact:

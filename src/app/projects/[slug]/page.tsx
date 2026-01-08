@@ -6,6 +6,7 @@ import ScreenshotGallery from "@/components/screenshot-gallery";
 import PlaceholderFrame from "@/components/placeholder-frame";
 import ScrollFadeIn from "@/components/scroll-fade-in";
 import FunFactBadge from "@/components/fun-fact-badge";
+import CollaboratorCard from "@/components/collaborator-card";
 import { projects } from "@/data/projects";
 import { funFacts } from "@/data/fun-facts";
 import { siteCopy } from "@/content/siteCopy";
@@ -97,18 +98,28 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </section>
           )}
           {project.collaborators && project.collaborators.length > 0 && (
-            <section className="mt-4">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">
+            <section className="mt-6">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">
                 Collaborators
               </p>
-              <div className="flex flex-wrap gap-2">
-                {project.collaborators.map((collab) => (
-                  collab.link ? (
+              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                {project.collaborators.map((collab) =>
+                  collab.imageSrc && collab.program && collab.linkedinUrl ? (
+                    <CollaboratorCard
+                      key={collab.name}
+                      name={collab.name}
+                      program={collab.program}
+                      additionalInfo={collab.additionalInfo}
+                      linkedinUrl={collab.linkedinUrl}
+                      imageSrc={collab.imageSrc}
+                      photoCredit={collab.photoCredit}
+                    />
+                  ) : collab.link ? (
                     <Link
                       key={collab.name}
                       href={collab.link}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-700 transition hover:border-blue-400 hover:bg-blue-50 hover:text-blue-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-blue-500 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
                     >
                       <span>{collab.name}</span>
@@ -123,7 +134,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                       {collab.role && <span className="text-gray-500 dark:text-gray-400">· {collab.role}</span>}
                     </span>
                   )
-                ))}
+                )}
               </div>
             </section>
           )}
